@@ -42,7 +42,6 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         let clothes = clothing[indexPath.row]
         cell.brandLabel.text = clothes.brand
         
-        
         return cell
     }
     

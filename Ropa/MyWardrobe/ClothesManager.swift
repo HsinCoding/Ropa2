@@ -47,7 +47,7 @@ class ClothesManager {
                 guard let shopLocate = valueDictionary["shopLocate"] as? String else { return }
                 
                 
-                let clothes = Clothes.init(id: "id", img: "img", price: price, brand: brand, type: "type", color: "color", owner: "\(uid)", date: date, shopLocate: shopLocate)
+                let clothes = Clothes.init(id: "id", img: "img", price: price, brand: brand, type: "\(type)", color: "color", owner: "\(uid)", date: date, shopLocate: shopLocate)
                 clothing.append(clothes)
                 
                 self.delegate?.manager(self, didfetch: clothing)

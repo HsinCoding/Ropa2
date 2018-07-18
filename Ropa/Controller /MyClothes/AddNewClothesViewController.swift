@@ -20,6 +20,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var shopLocateTextField: UITextField!
+
     
     @IBOutlet weak var itemPickerView: UIPickerView!
     let typeArray = ["上著","下著","外套","連身","鞋","包"]
@@ -40,7 +41,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return typeArray[row]
     }
-    
     
 //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 //        let realtype = typeArray[row]
@@ -84,6 +84,17 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         present(imagePickerAlertController, animated: true, completion: nil)
     }
     
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        clothesImageView.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     //儲存
     @IBAction func saveButton(_ sender: Any) {
         
@@ -105,32 +116,33 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
             
             guard let uid = Auth.auth().currentUser?.uid else { return }
             
+            var imageUrl = ""
+            
             let clothesId = NSUUID().uuidString
             
+            //存圖片到資料庫
+            let storageRef = Storage.storage().reference().child("image")
             
-            
-            
-            //存圖片於Firebase
-            Storage.storage().reference().child("Clothes_Image").child("\(uid)").child("\(clothesId)").putData(uploadData, metadata: nil, completion: { (metadata, error) in
-                
-                if let error = error {
-                    print("Failed to upload profile image:", error)
-                    return
+            storageRef.child(uid).child(clothesId).putData(uploadData)
+        
+            storageRef.child(uid).child(clothesId).downloadURL { (url, error) in
+                if url != nil {
+                    if let imageUrlString = url?.absoluteString as? String {
+                        imageUrl = imageUrlString
+                    }
+                    
+                }
+                else {
+                    //error handing
+                    print("something error with imageURL")
                 }
                
-                
-            Storage.storage().reference().child("Clothes_Image").child("\(uid)").child("\(clothesId)").downloadURL(completion: { (url, error) in
-                    
-                    // optional biding
-                    guard let url = url else  { return }
-                    print("download", error, url)
-                
-                
+            }
+            
+        
                 let dateString = self.dateCreat()
                 
-                
-                
-                let dic = ["imgUrl":"\(url)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
+                let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
                 
                 //存入服飾資料於Firebase
                     Database.database().reference().child("clothes").child("\(clothesId)").setValue(dic, withCompletionBlock: { (error, ref) in
@@ -140,8 +152,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                         }
                         print("Successfully to the clothes value ")
                     })
-                })
-            })
+                
         }
         performSegue(withIdentifier: "goToWardrobe", sender: nil)
     }
@@ -158,12 +169,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     }
     
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        clothesImageView.image = image
-        dismiss(animated: true, completion: nil)
-    }
     
     
     

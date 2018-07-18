@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKZ-Kn-Blh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="836" y="-385"/>
+            <point key="canvasLocation" x="722" y="-526"/>
         </scene>
         <!--Clothes Details View Controller-->
         <scene sceneID="qrv-ZS-P1W">
@@ -170,12 +170,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDO-CB-Api" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3190" y="-237"/>
+            <point key="canvasLocation" x="2900" y="-528"/>
         </scene>
-        <!--The First View Controller-->
+        <!--First Screen View Controller-->
         <scene sceneID="tux-xP-egg">
             <objects>
-                <viewController id="7zS-k9-gsp" customClass="TheFirstViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7zS-k9-gsp" customClass="FirstScreenViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NzK-4n-wF2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,14 +217,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH7-Ff-d74">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@gmail.com" borderStyle="roundedRect" placeholder="電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH7-Ff-d74">
                                 <rect key="frame" x="139" y="136" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yy0-cL-hx0">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aaaaaa" borderStyle="roundedRect" placeholder="密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yy0-cL-hx0">
                                 <rect key="frame" x="139" y="250" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -269,14 +269,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-Kw-NFH">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@gmail.com" borderStyle="roundedRect" placeholder="電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-Kw-NFH">
                                 <rect key="frame" x="139" y="121" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edP-pZ-hX6">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aaaaaa" borderStyle="roundedRect" placeholder="密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edP-pZ-hX6">
                                 <rect key="frame" x="139" y="211" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -331,77 +331,10 @@
             </objects>
             <point key="canvasLocation" x="-929" y="598"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="rhW-Kl-7qW">
-            <objects>
-                <viewController id="pfh-PO-eYT" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iUg-0o-huN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2k-U6-ztn">
-                                <rect key="frame" x="166" y="323" width="10" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="BV9-Wj-f0r"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="San-UE-J2N"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BcP-Nj-uCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1113" y="1167"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="sQK-3l-4oi">
-            <objects>
-                <viewController id="B9q-vy-Dag" customClass="myWardrobeViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ydj-oi-TLu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jlg-mG-6A0">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="VrX-Bs-oXY">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VrX-Bs-oXY" id="Oyk-bl-dGR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="B9q-vy-Dag" id="5nH-H9-PCo"/>
-                                    <outlet property="delegate" destination="B9q-vy-Dag" id="nus-Lz-UlI"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="jlg-mG-6A0" firstAttribute="leading" secondItem="6A5-Fs-xBR" secondAttribute="leading" id="499-Ig-gdt"/>
-                            <constraint firstItem="jlg-mG-6A0" firstAttribute="bottom" secondItem="6A5-Fs-xBR" secondAttribute="bottom" id="a1c-Wi-vIy"/>
-                            <constraint firstItem="jlg-mG-6A0" firstAttribute="trailing" secondItem="6A5-Fs-xBR" secondAttribute="trailing" id="d48-el-CgY"/>
-                            <constraint firstItem="jlg-mG-6A0" firstAttribute="top" secondItem="6A5-Fs-xBR" secondAttribute="top" id="qW4-Zq-Viz"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6A5-Fs-xBR"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="sbf-eu-NNj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lfn-uV-brx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1112.8" y="468.21589205397305"/>
-        </scene>
-        <!--Clothes List View Controller-->
+        <!--Item-->
         <scene sceneID="WLn-f3-IKp">
             <objects>
-                <viewController id="CqM-l9-cUe" customClass="ClothesListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClothesListViewController" id="CqM-l9-cUe" customClass="ClothesListViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dXy-me-wQy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -460,13 +393,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tsA-hN-14R"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="zgB-ZM-hPO"/>
                     <connections>
-                        <outlet property="clothesCollectionView" destination="tJ6-uE-2Zg" id="sVV-9Z-A6L"/>
+                        <outlet property="clothesCollectionView" destination="tJ6-uE-2Zg" id="3hb-uw-vUr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rV2-uh-8HG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1661.5999999999999" y="-385.45727136431788"/>
+            <point key="canvasLocation" x="1884" y="-527"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4bn-DM-Gkr">
@@ -479,8 +413,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="B9q-vy-Dag" kind="relationship" relationship="viewControllers" id="cHX-XM-5OP"/>
-                        <segue destination="pfh-PO-eYT" kind="relationship" relationship="viewControllers" id="RbO-XS-rY4"/>
                         <segue destination="XUF-FL-eh3" kind="relationship" relationship="viewControllers" id="2Xd-En-wVV"/>
                     </connections>
                 </tabBarController>
