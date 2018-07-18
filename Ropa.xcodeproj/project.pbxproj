@@ -11,21 +11,20 @@
 		E36385B720F3015F00FB81AC /* TheFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385B620F3015F00FB81AC /* TheFirstViewController.swift */; };
 		E36385B920F3019600FB81AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385B820F3019600FB81AC /* LoginViewController.swift */; };
 		E36385BB20F30D4800FB81AC /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385BA20F30D4800FB81AC /* SigninViewController.swift */; };
-		E36385BF20F476AC00FB81AC /* ClothesListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385BE20F476AC00FB81AC /* ClothesListCollectionViewController.swift */; };
 		E363867820F7286300FB81AC /* ClothesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E363867720F7286300FB81AC /* ClothesListViewController.swift */; };
 		E36386B620FB6C9300FB81AC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36386B520FB6C9300FB81AC /* User.swift */; };
 		E36386B820FD92C600FB81AC /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36386B720FD92C600FB81AC /* Outfit.swift */; };
+		E36386DC20FF0EED00FB81AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E36386DB20FF0EED00FB81AC /* GoogleService-Info.plist */; };
 		E389050920DCB99000288B57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389050820DCB99000288B57 /* AppDelegate.swift */; };
 		E389050B20DCB99000288B57 /* myWardrobeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389050A20DCB99000288B57 /* myWardrobeViewController.swift */; };
 		E389050E20DCB99000288B57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E389050C20DCB99000288B57 /* Main.storyboard */; };
 		E389051020DCB99200288B57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E389050F20DCB99200288B57 /* Assets.xcassets */; };
 		E389051320DCB99200288B57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E389051120DCB99200288B57 /* LaunchScreen.storyboard */; };
-		E389051B20DCBB4200288B57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E389051A20DCBB4200288B57 /* GoogleService-Info.plist */; };
 		E389051D20DCDDF500288B57 /* AddNewClothesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389051C20DCDDF500288B57 /* AddNewClothesViewController.swift */; };
 		E38D299420DFCE3200A0EFD0 /* Clothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D299320DFCE3200A0EFD0 /* Clothes.swift */; };
 		E38D29D220E0BEF600A0EFD0 /* ClothesManagerDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D29D120E0BEF600A0EFD0 /* ClothesManagerDelegate .swift */; };
 		E38D29D520E0C03200A0EFD0 /* ClothesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D29D420E0C03200A0EFD0 /* ClothesManager.swift */; };
-		E38D29DD20E0CF6200A0EFD0 /* ClothesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D29DC20E0CF6200A0EFD0 /* ClothesCollectionViewCell.swift */; };
+		E38D29DD20E0CF6200A0EFD0 /* ClothesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D29DC20E0CF6200A0EFD0 /* ClothesListCell.swift */; };
 		E38D29E120E2330C00A0EFD0 /* testForImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D29E020E2330C00A0EFD0 /* testForImageUpload.swift */; };
 		E3EE737120E4C04000B41B20 /* ClothesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EE737020E4C04000B41B20 /* ClothesDetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -37,10 +36,10 @@
 		E36385B620F3015F00FB81AC /* TheFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheFirstViewController.swift; sourceTree = "<group>"; };
 		E36385B820F3019600FB81AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E36385BA20F30D4800FB81AC /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
-		E36385BE20F476AC00FB81AC /* ClothesListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesListCollectionViewController.swift; sourceTree = "<group>"; };
 		E363867720F7286300FB81AC /* ClothesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesListViewController.swift; sourceTree = "<group>"; };
 		E36386B520FB6C9300FB81AC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E36386B720FD92C600FB81AC /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
+		E36386DB20FF0EED00FB81AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E389050520DCB99000288B57 /* Ropa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ropa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E389050820DCB99000288B57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E389050A20DCB99000288B57 /* myWardrobeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myWardrobeViewController.swift; sourceTree = "<group>"; };
@@ -48,12 +47,11 @@
 		E389050F20DCB99200288B57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E389051220DCB99200288B57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E389051420DCB99200288B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E389051A20DCBB4200288B57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E389051C20DCDDF500288B57 /* AddNewClothesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewClothesViewController.swift; sourceTree = "<group>"; };
 		E38D299320DFCE3200A0EFD0 /* Clothes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clothes.swift; sourceTree = "<group>"; };
 		E38D29D120E0BEF600A0EFD0 /* ClothesManagerDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClothesManagerDelegate .swift"; sourceTree = "<group>"; };
 		E38D29D420E0C03200A0EFD0 /* ClothesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesManager.swift; sourceTree = "<group>"; };
-		E38D29DC20E0CF6200A0EFD0 /* ClothesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCollectionViewCell.swift; sourceTree = "<group>"; };
+		E38D29DC20E0CF6200A0EFD0 /* ClothesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesListCell.swift; sourceTree = "<group>"; };
 		E38D29E020E2330C00A0EFD0 /* testForImageUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testForImageUpload.swift; sourceTree = "<group>"; };
 		E3EE737020E4C04000B41B20 /* ClothesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,9 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				E389051C20DCDDF500288B57 /* AddNewClothesViewController.swift */,
-				E3EE737020E4C04000B41B20 /* ClothesDetailsViewController.swift */,
 				E363867720F7286300FB81AC /* ClothesListViewController.swift */,
-				E36385BE20F476AC00FB81AC /* ClothesListCollectionViewController.swift */,
+				E3EE737020E4C04000B41B20 /* ClothesDetailsViewController.swift */,
 			);
 			path = MyClothes;
 			sourceTree = "<group>";
@@ -158,7 +155,7 @@
 				E389050F20DCB99200288B57 /* Assets.xcassets */,
 				E389051120DCB99200288B57 /* LaunchScreen.storyboard */,
 				E389051420DCB99200288B57 /* Info.plist */,
-				E389051A20DCBB4200288B57 /* GoogleService-Info.plist */,
+				E36386DB20FF0EED00FB81AC /* GoogleService-Info.plist */,
 			);
 			path = Ropa;
 			sourceTree = "<group>";
@@ -176,7 +173,7 @@
 		E38D29DB20E0CEF400A0EFD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E38D29DC20E0CF6200A0EFD0 /* ClothesCollectionViewCell.swift */,
+				E38D29DC20E0CF6200A0EFD0 /* ClothesListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,7 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E389051320DCB99200288B57 /* LaunchScreen.storyboard in Resources */,
-				E389051B20DCBB4200288B57 /* GoogleService-Info.plist in Resources */,
+				E36386DC20FF0EED00FB81AC /* GoogleService-Info.plist in Resources */,
 				E389051020DCB99200288B57 /* Assets.xcassets in Resources */,
 				E389050E20DCB99000288B57 /* Main.storyboard in Resources */,
 			);
@@ -306,11 +303,10 @@
 				E389050B20DCB99000288B57 /* myWardrobeViewController.swift in Sources */,
 				E389051D20DCDDF500288B57 /* AddNewClothesViewController.swift in Sources */,
 				E36385BB20F30D4800FB81AC /* SigninViewController.swift in Sources */,
-				E38D29DD20E0CF6200A0EFD0 /* ClothesCollectionViewCell.swift in Sources */,
+				E38D29DD20E0CF6200A0EFD0 /* ClothesListCell.swift in Sources */,
 				E38D29E120E2330C00A0EFD0 /* testForImageUpload.swift in Sources */,
 				E38D299420DFCE3200A0EFD0 /* Clothes.swift in Sources */,
 				E36386B620FB6C9300FB81AC /* User.swift in Sources */,
-				E36385BF20F476AC00FB81AC /* ClothesListCollectionViewController.swift in Sources */,
 				E3EE737120E4C04000B41B20 /* ClothesDetailsViewController.swift in Sources */,
 				E38D29D220E0BEF600A0EFD0 /* ClothesManagerDelegate .swift in Sources */,
 				E38D29D520E0C03200A0EFD0 /* ClothesManager.swift in Sources */,

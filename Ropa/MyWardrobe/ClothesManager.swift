@@ -36,18 +36,20 @@ class ClothesManager {
         let query = ref1?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
         
         query?.observeSingleEvent(of: .value, with: { (snapshot) in
-            print("dddddd",snapshot)
-            
+           print(snapshot)
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             for key in dictionary.keys {
                 guard let valueDictionary = dictionary["\(key)"] as? [String: Any] else { return }
                 guard let brand = valueDictionary["brand"] as? String else { return }
                 guard let date = valueDictionary["date"] as? String else { return }
+                guard let type = valueDictionary["type"] as? String else { return }
                 guard let price = valueDictionary["price"] as? String else { return }
                 guard let shopLocate = valueDictionary["shopLocate"] as? String else { return }
-            
+                
+                
                 let clothes = Clothes.init(id: "id", img: "img", price: price, brand: brand, type: "type", color: "color", owner: "\(uid)", date: date, shopLocate: shopLocate)
                 clothing.append(clothes)
+                
                 self.delegate?.manager(self, didfetch: clothing)
 
             }

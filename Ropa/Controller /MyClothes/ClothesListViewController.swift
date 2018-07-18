@@ -14,6 +14,7 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     @IBOutlet weak var clothesCollectionView: UICollectionView!
+    
     var fileUploadDic: [String:Any]?
     var clothing: [Clothes] = []
     var ref: DatabaseReference?
@@ -36,13 +37,11 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ClothesCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ClothesListViewCell
         
         let clothes = clothing[indexPath.row]
         cell.brandLabel.text = clothes.brand
-        cell.colorLabel.text = clothes.color
-        cell.dateLabel.text = clothes.date
-        cell.priceLabel.text = String(clothes.price)
+        
         
         return cell
     }
@@ -67,14 +66,6 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

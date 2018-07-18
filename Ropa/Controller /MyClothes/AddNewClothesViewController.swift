@@ -21,6 +21,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var shopLocateTextField: UITextField!
     
+    @IBOutlet weak var itemPickerView: UIPickerView!
     let typeArray = ["上著","下著","外套","連身","鞋","包"]
     
     var ref: DatabaseReference?
@@ -40,10 +41,12 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         return typeArray[row]
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let realtype = typeArray[row]
-        print("hererererer",type)
-    }
+    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        let realtype = typeArray[row]
+//        self.type = realtype
+//        print("hererererer",realtype)
+//    }
     
     
     
@@ -83,6 +86,11 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     
     //儲存
     @IBAction func saveButton(_ sender: Any) {
+        
+        itemPickerView.selectedRow(inComponent: 0) // didSelectRow 相同意思
+        type = typeArray[itemPickerView.selectedRow(inComponent: 0)]
+        print(type)
+        
         
         ref = Database.database().reference()
         if brandTextField.text == "" || priceTextField.text == "" || shopLocateTextField.text == "" {
@@ -134,7 +142,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                     })
                 })
             })
-            
         }
         performSegue(withIdentifier: "goToWardrobe", sender: nil)
     }
