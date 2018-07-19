@@ -123,28 +123,22 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
             //存圖片到資料庫
             let storageRef = Storage.storage().reference().child("image")
             
-            storageRef.child(uid).child(clothesId).putData(uploadData)
-        
-            storageRef.child(uid).child(clothesId).downloadURL { (url, error) in
-                if url != nil {
-                    if let imageUrlString = url?.absoluteString as? String {
-                        imageUrl = imageUrlString
-                    }
-                    
-                }
-                else {
-                    //error handing
-                    print("something error with imageURL")
-                }
-               
-            }
             
-        
-                let dateString = self.dateCreat()
+            storageRef.child(uid).child(clothesId).putData(uploadData, metadata: nil) { (data, error) in
+                if error != nil {
+                    print("Error about put data:\(error?.localizedDescription)")
+                    return
+                }
                 
-                let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
+                storageRef.child(uid).child(clothesId).downloadURL(completion: { (url, error) in
+                    guard let imageUrl = url else { return }
+               
                 
-                //存入服飾資料於Firebase
+                    let dateString = self.dateCreat()
+                    
+                    let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
+                    
+                    //存入服飾資料於Firebase
                     Database.database().reference().child("clothes").child("\(clothesId)").setValue(dic, withCompletionBlock: { (error, ref) in
                         if let error = error {
                             print("Failed to set the clothes value", error)
@@ -152,6 +146,32 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                         }
                         print("Successfully to the clothes value ")
                     })
+                
+            
+                })
+                
+               
+            }
+            
+            
+//            storageRef.child(uid).child(clothesId).downloadURL { (url, error) in
+//                if url != nil {
+//                    if let imageUrlString = url?.absoluteString as? String {
+//                    imageUrl = imageUrlString
+//                        print("這裡這裡:",imageUrl)
+//                    }
+//
+//                }
+//                else {
+//                    //error handing
+//                    print("something error with imageURL")
+//                }
+//
+//            }
+        
+        
+            
+            
                 
         }
         performSegue(withIdentifier: "goToWardrobe", sender: nil)

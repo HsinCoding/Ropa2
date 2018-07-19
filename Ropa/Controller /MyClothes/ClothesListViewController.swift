@@ -45,20 +45,20 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
          //圖片呈現部分
         
          let imageUrl = clothes.img
-         let url = URL(string: imageUrl)
-        let request = URLRequest(url: url!)
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print("erro在這：",error)
-                return
-            }
-            DispatchQueue.main.async {
-                cell.imageView.image = UIImage(data: data!)
-            }
-        }.resume()
-        //圖片呈現部分
-        
-        print("這是新的")
+////        let url = Storage.storage().reference(forURL:"gs://ropa-5d499.appspot.com").child()
+//        
+////        let request = URLRequest(url: url!)
+//        URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            if error != nil {
+//                print("erro在這：",error?.localizedDescription)
+//                return
+//            }
+//            DispatchQueue.main.async {
+//                cell.imageView.image = UIImage(data: data!)
+//            }
+//        }.resume()
+//        //圖片呈現部分
+       
         
         return cell
     }
