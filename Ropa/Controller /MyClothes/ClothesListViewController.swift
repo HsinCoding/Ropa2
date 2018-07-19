@@ -39,29 +39,26 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ClothesListViewCell
         
-         //圖片呈現部分
-        if let dataDic = fireUploadDic {
-            let keyArray = Array(dataDic.keys)
-            if let imageUrlString = dataDic[keyArray[indexPath.row]] as? String {
-                if let imageUrl = URL(string: imageUrlString) {
-                    URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
-                        if error != nil {
-                            print("Download Image Task Fail: \(error!.localizedDescription)")
-                        }
-                        else if let imageData = data {
-                            print("This is Image:",data)
-                            DispatchQueue.main.async {
-                                cell.imageView.image = UIImage(data: imageData)
-                            }
-                        }
-                    } .resume()
-                }
-            }
-        }
-        //圖片呈現部分
-        
         let clothes = clothing[indexPath.row]
         cell.brandLabel.text = clothes.brand
+        
+         //圖片呈現部分
+        
+         let imageUrl = clothes.img
+         let url = URL(string: imageUrl)
+        let request = URLRequest(url: url!)
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("erro在這：",error)
+                return
+            }
+            DispatchQueue.main.async {
+                cell.imageView.image = UIImage(data: data!)
+            }
+        }.resume()
+        //圖片呈現部分
+        
+        
         return cell
     }
     
