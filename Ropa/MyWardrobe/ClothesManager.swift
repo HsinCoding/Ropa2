@@ -19,8 +19,6 @@ class ClothesManager {
     
     var myUser : User?
 
-    
-    
     func getClothes() {
         var clothing: [Clothes] = []
         ref = Database.database().reference()
