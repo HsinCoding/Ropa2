@@ -138,6 +138,8 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                     
                     let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
                     
+                  
+                    
                     //存入服飾資料於Firebase
                     Database.database().reference().child("clothes").child("\(clothesId)").setValue(dic, withCompletionBlock: { (error, ref) in
                         if let error = error {
@@ -146,33 +148,9 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                         }
                         print("Successfully to the clothes value ")
                     })
-                
-            
+    
                 })
-                
-               
             }
-            
-            
-//            storageRef.child(uid).child(clothesId).downloadURL { (url, error) in
-//                if url != nil {
-//                    if let imageUrlString = url?.absoluteString as? String {
-//                    imageUrl = imageUrlString
-//                        print("這裡這裡:",imageUrl)
-//                    }
-//
-//                }
-//                else {
-//                    //error handing
-//                    print("something error with imageURL")
-//                }
-//
-//            }
-        
-        
-            
-            
-                
         }
         performSegue(withIdentifier: "goToWardrobe", sender: nil)
     }
@@ -180,11 +158,12 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
 
     @IBAction func cancelButton(_ sender: Any) {
         
+        clothesImageView.image = nil
         brandTextField.text = ""
         priceTextField.text = ""
         shopLocateTextField.text = ""
         
-        performSegue(withIdentifier: "goToWardrobe", sender: nil)
+//        performSegue(withIdentifier: "goToWardrobe", sender: nil)
         
     }
     

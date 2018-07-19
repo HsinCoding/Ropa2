@@ -44,21 +44,15 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         
          //圖片呈現部分
         
-         let imageUrl = clothes.img
-////        let url = Storage.storage().reference(forURL:"gs://ropa-5d499.appspot.com").child()
-//        
-////        let request = URLRequest(url: url!)
-//        URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            if error != nil {
-//                print("erro在這：",error?.localizedDescription)
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                cell.imageView.image = UIImage(data: data!)
-//            }
-//        }.resume()
-//        //圖片呈現部分
-       
+        let storage = Storage.storage()
+        var reference: StorageReference!
+        
+        reference = storage.reference(forURL: "gs://ropa-5d499.appspot.com")
+        reference.downloadURL { (url, error) in
+            let data = NSData(contentsOf: url!)
+            let image = UIImage(data: data! as Data)
+            cell.imageView.image = image
+        }
         
         return cell
     }
