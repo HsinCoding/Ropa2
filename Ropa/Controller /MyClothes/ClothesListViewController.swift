@@ -58,6 +58,7 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         }.resume()
         //圖片呈現部分
         
+        print("這是新的")
         
         return cell
     }
