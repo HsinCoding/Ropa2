@@ -19,7 +19,7 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     var fireUploadDic: [String:Any]?
     var clothing: [Clothes] = []
     var ref: DatabaseReference?
-
+    let uid = Auth.auth().currentUser?.uid 
     
     func manager(_ manager: ClothesManager, didfetch Clothing: [Clothes]) {
         clothing = Clothing
@@ -45,21 +45,46 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.brandLabel.text = clothes.brand
         
          //圖片呈現部分
+        let databaseRef = Database.database().reference().child("clothes")
+        let query = databaseRef.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
 
-        
-        let storage = Storage.storage()
-        var reference: StorageReference!
-
-        reference = storage.reference(forURL: "gs://ropa-5d499.appspot.com")
-        print("first")
-        reference.downloadURL { (url, error) in
-             print("second")
-            let data = NSData(contentsOf: url!)
-             print("third")
-            let image = UIImage(data: data! as Data)
-            cell.imageView.image = image
+        query.observeSingleEvent(of: .value) { (snapshot) in
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            for key in dictionary.keys {
+                guard let valueDictionary = dictionary["\(key)"] as? [String: Any] else { return }
+                print("我", valueDictionary)
+                guard let imgUrlString = dictionary["imgUrl"] as? String else { return }
+                print("在",imgUrlString)
+                    if let imgUrl = URL(string: imgUrlString) {
+                        URLSession.shared.dataTask(with: imgUrl, completionHandler: { (data, response, error) in
+                            if error != nil {
+                                print("Download Image Task Fail: \(error!.localizedDescription)")
+                            }else if let imageData = data {
+                                DispatchQueue.main.async {
+                                    cell.imageView.image = UIImage(data: imageData)
+                                }
+                            }
+                        }).resume()
+                    }
+                }
         }
 
+        
+        
+//第一種方法(始)
+//        let storage = Storage.storage()
+//        var reference: StorageReference!
+//
+//        reference = storage.reference(forURL: "gs://ropa-5d499.appspot.com")
+//        print("first")
+//        reference.downloadURL { (url, error) in
+//             print("second")
+//            let data = NSData(contentsOf: url!)
+//             print("third")
+//            let image = UIImage(data: data! as Data)
+//            cell.imageView.image = image
+//        }
+//第一種方法(末)
         return cell
     }
     
@@ -73,12 +98,14 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let databaseRef = Database.database().reference().child("clothes")
         let query = databaseRef.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
-        databaseRef.observe(.value) { (snapshot) in
-            if let uploadDataDic = snapshot.value as? [String: Any] {
+        
+        query.observeSingleEvent(of: .value) { (snapshot) in
+            if let uploadDataDic = snapshot.value as? [String:Any] {
                 self.fireUploadDic = uploadDataDic
                 self.clothesCollectionView.reloadData()
             }
         }
+        
         //圖片呈現部分
     
         if Auth.auth().currentUser?.uid != nil {
