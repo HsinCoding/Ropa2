@@ -45,30 +45,51 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.brandLabel.text = clothes.brand
         
          //圖片呈現部分
-        let databaseRef = Database.database().reference().child("clothes")
-        let query = databaseRef.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
-
-        query.observeSingleEvent(of: .value) { (snapshot) in
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            for key in dictionary.keys {
-                guard let valueDictionary = dictionary["\(key)"] as? [String: Any] else { return }
-                print("我", valueDictionary)
-                guard let imgUrlString = dictionary["imgUrl"] as? String else { return }
-                print("在",imgUrlString)
-                    if let imgUrl = URL(string: imgUrlString) {
-                        URLSession.shared.dataTask(with: imgUrl, completionHandler: { (data, response, error) in
-                            if error != nil {
-                                print("Download Image Task Fail: \(error!.localizedDescription)")
-                            }else if let imageData = data {
-                                DispatchQueue.main.async {
-                                    cell.imageView.image = UIImage(data: imageData)
-                                }
-                            }
-                        }).resume()
+        
+//第三種方法(始)
+        let imgUrlString = clothes.img
+        if let imgUrl = URL(string: imgUrlString) {
+            URLSession.shared.dataTask(with: imgUrl) { (data, response, error) in
+                if error != nil {
+                     print("Download Image Task Fail: \(error!.localizedDescription)")
+                }else if let imageData = data {
+                    DispatchQueue.main.async {
+                        cell.imageView.image = UIImage(data: imageData)
                     }
                 }
+            }.resume()
         }
-
+        
+        
+//第三種方法(末)
+        
+//第二種方法(始)
+//        ref = Database.database().reference().child("clothes")
+//        let query = ref?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
+//
+//        query?.observeSingleEvent(of: .value) { (snapshot) in
+//            print(snapshot)
+//
+//            guard let dictionary = snapshot.value as? [String: Any] else {print("lala"); return }
+//            for key in dictionary.keys {
+//                guard let valueDictionary = dictionary["\(key)"] as? [String: Any] else {print("lala1"); return }
+//                print("我", valueDictionary)
+//                guard let imgUrlString = dictionary["imgUrl"] as? String else {print("lala2"); return }
+//                print("在",imgUrlString)
+//                    if let imgUrl = URL(string: imgUrlString) {
+//                        URLSession.shared.dataTask(with: imgUrl, completionHandler: { (data, response, error) in
+//                            if error != nil {
+//                                print("Download Image Task Fail: \(error!.localizedDescription)")
+//                            }else if let imageData = data {
+//                                DispatchQueue.main.async {
+//                                    cell.imageView.image = UIImage(data: imageData)
+//                                }
+//                            }
+//                        }).resume()
+//                    }
+//                }
+//        }
+//第二種方法(末)
         
         
 //第一種方法(始)
