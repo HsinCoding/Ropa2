@@ -147,12 +147,14 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                             return
                         }
                         print("Successfully to the clothes value ")
+                        self.performSegue(withIdentifier: "goToWardrobe", sender: nil)
+
                     })
     
                 })
             }
         }
-        performSegue(withIdentifier: "goToWardrobe", sender: nil)
+//        performSegue(withIdentifier: "goToWardrobe", sender: nil)
     }
     
 
