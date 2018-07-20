@@ -32,7 +32,9 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("有幾個:",clothing.count)
         return clothing.count
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,31 +45,24 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.brandLabel.text = clothes.brand
         
          //圖片呈現部分
+
         
         let storage = Storage.storage()
         var reference: StorageReference!
-        
+
         reference = storage.reference(forURL: "gs://ropa-5d499.appspot.com")
+        print("first")
         reference.downloadURL { (url, error) in
+             print("second")
             let data = NSData(contentsOf: url!)
+             print("third")
             let image = UIImage(data: data! as Data)
             cell.imageView.image = image
         }
-        
+
         return cell
     }
     
-
-//    //從這邊開始
-//    func downloadImage() -> UIImage {
-//        let storage = Storage.storage()
-//        var reference: StorageReference!
-//        storage.c
-//        return image
-//
-//    }
-//
-//
    
     let clothesManager = ClothesManager()
 

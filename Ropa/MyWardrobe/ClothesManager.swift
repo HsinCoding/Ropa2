@@ -41,6 +41,7 @@ class ClothesManager {
                 guard let brand = valueDictionary["brand"] as? String else { return }
                 guard let date = valueDictionary["date"] as? String else { return }
                 guard let type = valueDictionary["type"] as? String else { return }
+
                 guard let price = valueDictionary["price"] as? String else { return }
                 guard let shopLocate = valueDictionary["shopLocate"] as? String else { return }
                 
