@@ -111,8 +111,13 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClothesDetailsViewController") as! ClothesDetailsViewController
+        detailsViewController.brandLabel.text = clothing[indexPath.row].brand
+        print("kk",clothing[indexPath.row].brand)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
    

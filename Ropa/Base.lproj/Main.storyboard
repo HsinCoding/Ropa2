@@ -396,7 +396,6 @@
                     <tabBarItem key="tabBarItem" title="Item" id="zgB-ZM-hPO"/>
                     <connections>
                         <outlet property="clothesCollectionView" destination="tJ6-uE-2Zg" id="3hb-uw-vUr"/>
-                        <segue destination="VnX-6q-5ry" kind="presentation" identifier="goToClothesDetails" id="0c2-lU-snQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rV2-uh-8HG" userLabel="First Responder" sceneMemberID="firstResponder"/>

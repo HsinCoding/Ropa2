@@ -23,7 +23,6 @@ class ClothesDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        brandLabel.text = clothes?.brand
         
         
     }
