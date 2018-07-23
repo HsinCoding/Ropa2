@@ -359,7 +359,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIJ-ks-8fy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-929" y="598"/>
+            <point key="canvasLocation" x="-750" y="585"/>
         </scene>
         <!--Item-->
         <scene sceneID="WLn-f3-IKp">
@@ -370,7 +370,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tJ6-uE-2Zg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="HZn-O9-CIs"/>
@@ -417,6 +417,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <size key="customSize" width="169" height="186"/>
                                         <connections>
                                             <outlet property="brandLabel" destination="Nzz-6M-cTX" id="RKf-uV-C1S"/>
                                             <outlet property="imageView" destination="nL6-Yz-d02" id="Tjp-NF-rjy"/>
@@ -428,6 +429,19 @@
                                     <outlet property="delegate" destination="CqM-l9-cUe" id="Rwn-lr-Maz"/>
                                 </connections>
                             </collectionView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="muI-lz-TjK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="List" id="1sq-JZ-Nke">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dwm-kc-fad">
+                                            <connections>
+                                                <segue destination="XUF-FL-eh3" kind="show" id="T9K-Wn-3QO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -445,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rV2-uh-8HG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1884" y="-527.58620689655174"/>
+            <point key="canvasLocation" x="1482" y="-528"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4bn-DM-Gkr">
@@ -464,11 +478,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ar-f0-o5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-18" y="598"/>
+            <point key="canvasLocation" x="-18" y="584"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="n43-Ql-wJX"/>
+        <segue reference="JCO-Uz-Svb"/>
         <segue reference="cvO-6X-Afz"/>
+        <segue reference="2Xd-En-wVV"/>
     </inferredMetricsTieBreakers>
 </document>

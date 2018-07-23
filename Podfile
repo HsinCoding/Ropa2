@@ -6,6 +6,9 @@ target 'Ropa' do
   use_frameworks!
 
   # Pods for Ropa
+
+	 pod 'TDImageColors@betzerra', '~> 0.3'
+
 	 pod 'Firebase/Core'
 
  	 pod 'Firebase/Database'

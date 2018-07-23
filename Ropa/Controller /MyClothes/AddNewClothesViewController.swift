@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 import Firebase
+import TDImageColors_betzerra
 
 
 class AddNewClothesViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
@@ -134,7 +135,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                     guard let imageUrl = url else { return }
                
                 
-                    let dateString = self.dateCreat()
+                    let dateString = self.dateCreatDetail()
                     
                     let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
                     
@@ -169,8 +170,8 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         
     }
     
-
     //自動生成時間
+    //For UI 呈現
     func dateCreat() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
@@ -180,6 +181,17 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         
         return dateString
     }
+    //For Save
+    func dateCreatDetail() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd/HH/mm"
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        return dateString
+    }
+    
     
     
     
@@ -188,13 +200,26 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         dateLabel.text = dateCreat()
     }
     
+}
 
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
-    
-    
-    
+extension UIColor {
+    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        if getRed(&r, green: &g, blue: &b, alpha: &a) {
+            return (r,g,b,a)
+        }
+        return (0, 0, 0, 0)
+    }
+}
+
+extension String {
+    func toCGFloat() -> CGFloat? {
+        if let float = Float(self) {
+            return CGFloat(float)
+        } else {
+            return nil
+        }
+    }
 }
 
 
