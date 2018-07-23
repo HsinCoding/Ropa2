@@ -15,16 +15,22 @@ class ClothesDetailsViewController: UIViewController {
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var prieceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    
+    
     
     var image = UIImage()
-    var clothes: Clothes?
-    
+    var brand = ""
+    var price = ""
+    var date = ""
+    var type = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        brandLabel.text = brand
+        prieceLabel.text = price
+        dateLabel.text = date
+        typeLabel.text = type
     }
     
     

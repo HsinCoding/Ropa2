@@ -37,7 +37,8 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         return clothing.count
         
     }
-
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ClothesListViewCell
@@ -53,7 +54,7 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
             URLSession.shared.dataTask(with: imgUrl) { (data, response, error) in
                 if error != nil {
                      print("Download Image Task Fail: \(error!.localizedDescription)")
-                }else if let imageData = data {
+                } else if let imageData = data {
                     DispatchQueue.main.async {
                         cell.imageView.image = UIImage(data: imageData)
                     }
@@ -61,52 +62,6 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
             }.resume()
         }
         
-        
-//第三種方法(末)
-        
-//第二種方法(始)
-//        ref = Database.database().reference().child("clothes")
-//        let query = ref?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
-//
-//        query?.observeSingleEvent(of: .value) { (snapshot) in
-//            print(snapshot)
-//
-//            guard let dictionary = snapshot.value as? [String: Any] else {print("lala"); return }
-//            for key in dictionary.keys {
-//                guard let valueDictionary = dictionary["\(key)"] as? [String: Any] else {print("lala1"); return }
-//                print("我", valueDictionary)
-//                guard let imgUrlString = dictionary["imgUrl"] as? String else {print("lala2"); return }
-//                print("在",imgUrlString)
-//                    if let imgUrl = URL(string: imgUrlString) {
-//                        URLSession.shared.dataTask(with: imgUrl, completionHandler: { (data, response, error) in
-//                            if error != nil {
-//                                print("Download Image Task Fail: \(error!.localizedDescription)")
-//                            }else if let imageData = data {
-//                                DispatchQueue.main.async {
-//                                    cell.imageView.image = UIImage(data: imageData)
-//                                }
-//                            }
-//                        }).resume()
-//                    }
-//                }
-//        }
-//第二種方法(末)
-        
-        
-//第一種方法(始)
-//        let storage = Storage.storage()
-//        var reference: StorageReference!
-//
-//        reference = storage.reference(forURL: "gs://ropa-5d499.appspot.com")
-//        print("first")
-//        reference.downloadURL { (url, error) in
-//             print("second")
-//            let data = NSData(contentsOf: url!)
-//             print("third")
-//            let image = UIImage(data: data! as Data)
-//            cell.imageView.image = image
-//        }
-//第一種方法(末)
         return cell
     }
     
@@ -115,23 +70,15 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let detailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClothesDetailsViewController") as! ClothesDetailsViewController
-        detailsViewController.brandLabel.text = clothing[indexPath.row].brand
-        print("kk",clothing[indexPath.row].brand)
+        detailsViewController.brand = clothing[indexPath.row].brand
+        detailsViewController.price = clothing[indexPath.row].price
+        detailsViewController.date = clothing[indexPath.row].date
+        detailsViewController.type = clothing[indexPath.row].type
+        // 補上圖片
+//        detailsViewController.image = clothing[indexPath.row].img
+        print("kk",clothing[indexPath.row].price)
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
-    
-   
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToClothesDetails" {
-//            if let indexPath = self.clothesCollectionView.indexPathsForSelectedItems {
-//                let object = clothing[indexPath.]
-//            }
-//        }
-//    }
-//    
-    
-    
-    
     
     
     override func viewDidLoad() {
@@ -149,22 +96,19 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         }
         
-        //圖片呈現部分
-    
         if Auth.auth().currentUser?.uid != nil {
             clothesManager.delegate = self
             clothesManager.getClothes()
         }
-        
-       
     }
 
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
 
 }
