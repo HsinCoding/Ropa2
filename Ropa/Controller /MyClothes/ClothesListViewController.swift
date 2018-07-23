@@ -20,7 +20,8 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     var clothing: [Clothes] = []
     var ref: DatabaseReference?
     let uid = Auth.auth().currentUser?.uid 
-    
+    let clothesManager = ClothesManager()
+
     func manager(_ manager: ClothesManager, didfetch Clothing: [Clothes]) {
         clothing = Clothing
         self.clothesCollectionView.reloadData()
@@ -109,9 +110,25 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         return cell
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
    
-    let clothesManager = ClothesManager()
-
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToClothesDetails" {
+//            if let indexPath = self.clothesCollectionView.indexPathsForSelectedItems {
+//                let object = clothing[indexPath.]
+//            }
+//        }
+//    }
+//    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

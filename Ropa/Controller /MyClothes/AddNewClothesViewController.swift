@@ -147,7 +147,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                             return
                         }
                         print("Successfully to the clothes value ")
-                        self.performSegue(withIdentifier: "goToWardrobe", sender: nil)
+                        self.performSegue(withIdentifier: "goToClothesList", sender: nil)
 
                     })
     
@@ -170,9 +170,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     }
     
 
-    
-    
-    
     //自動生成時間
     func dateCreat() -> String {
         let dateFormatter = DateFormatter()

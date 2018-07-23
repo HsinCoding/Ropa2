@@ -109,7 +109,7 @@
                         <outlet property="itemPickerView" destination="VPX-BO-uZX" id="gvr-i8-1Vw"/>
                         <outlet property="priceTextField" destination="uG2-Od-xcx" id="LdM-rb-Ept"/>
                         <outlet property="shopLocateTextField" destination="4ca-fN-RE2" id="oDV-7c-J2p"/>
-                        <segue destination="CqM-l9-cUe" kind="presentation" identifier="goToWardrobe" id="n43-Ql-wJX"/>
+                        <segue destination="CqM-l9-cUe" kind="presentation" identifier="goToClothesList" id="n43-Ql-wJX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKZ-Kn-Blh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,7 +340,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tJ6-uE-2Zg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="HZn-O9-CIs"/>
@@ -396,6 +396,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="zgB-ZM-hPO"/>
                     <connections>
                         <outlet property="clothesCollectionView" destination="tJ6-uE-2Zg" id="3hb-uw-vUr"/>
+                        <segue destination="VnX-6q-5ry" kind="presentation" identifier="goToClothesDetails" id="0c2-lU-snQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rV2-uh-8HG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,7 +424,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JCO-Uz-Svb"/>
+        <segue reference="n43-Ql-wJX"/>
         <segue reference="cvO-6X-Afz"/>
     </inferredMetricsTieBreakers>
 </document>
