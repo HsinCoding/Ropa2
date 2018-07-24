@@ -114,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="1305" y="-398"/>
         </scene>
-        <!--Add New Outfit View Controller-->
+        <!--Item-->
         <scene sceneID="hpM-CP-QDg">
             <objects>
                 <viewController storyboardIdentifier="AddNewOutfitViewController" id="9M0-9c-bPT" customClass="AddNewOutfitViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
@@ -133,18 +133,26 @@
                                     <segment title="公開"/>
                                     <segment title="私密"/>
                                 </segments>
+                                <connections>
+                                    <action selector="privacySegmentedControl:" destination="9M0-9c-bPT" eventType="valueChanged" id="McU-5O-MVb"/>
+                                </connections>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="備註" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="adt-6Y-FvK">
-                                <rect key="frame" x="67" y="437" width="240" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="90R-S1-XVh">
-                                <rect key="frame" x="-4" y="541" width="375" height="84"/>
+                                <rect key="frame" x="-4" y="518" width="375" height="83"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9M0-9c-bPT" id="Bbs-ET-7Fk"/>
+                                    <outlet property="delegate" destination="9M0-9c-bPT" id="jRM-Wg-bAy"/>
+                                </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb3-BG-13q">
+                                <rect key="frame" x="152" y="282" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="上傳圖片"/>
+                                <connections>
+                                    <action selector="selectImageButton:" destination="9M0-9c-bPT" eventType="touchUpInside" id="ILR-a6-aVu"/>
+                                </connections>
+                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Wav-eQ-POK">
                                 <rect key="frame" x="126" y="338" width="115" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -154,20 +162,46 @@
                                     <segment title="秋"/>
                                     <segment title="冬"/>
                                 </segments>
+                                <connections>
+                                    <action selector="seasonSegmentedControl:" destination="9M0-9c-bPT" eventType="valueChanged" id="BMP-eX-dkT"/>
+                                </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb3-BG-13q">
-                                <rect key="frame" x="152" y="282" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffI-A9-6dd">
+                                <rect key="frame" x="99" y="617" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="上傳圖片"/>
+                                <state key="normal" title="儲存"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="9M0-9c-bPT" eventType="touchUpInside" id="0yY-st-3Em"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7U-UM-hPI">
+                                <rect key="frame" x="269" y="617" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="取消"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="9M0-9c-bPT" eventType="touchUpInside" id="qns-9P-njo"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="備註" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="adt-6Y-FvK">
+                                <rect key="frame" x="67" y="420" width="240" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="LaM-fR-FGW"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Ehq-EY-rXS"/>
+                    <connections>
+                        <outlet property="noteTextView" destination="adt-6Y-FvK" id="Ybq-XY-Dwt"/>
+                        <outlet property="outfitImageView" destination="HhX-ix-4Wn" id="RMz-XQ-HDY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGS-96-yHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="717.60000000000002" y="560.86956521739137"/>
+            <point key="canvasLocation" x="608.79999999999995" y="560.86956521739137"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RSd-YI-eNt">
@@ -217,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2q-aT-clZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="561"/>
+            <point key="canvasLocation" x="1417" y="561"/>
         </scene>
         <!--Clothes Details View Controller-->
         <scene sceneID="qrv-ZS-P1W">

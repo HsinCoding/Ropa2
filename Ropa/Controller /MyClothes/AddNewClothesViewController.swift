@@ -43,15 +43,8 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         return typeArray[row]
     }
     
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        let realtype = typeArray[row]
-//        self.type = realtype
-//        print("hererererer",realtype)
-//    }
     
-    
-    
-    // 點選上傳按鈕，可開啟相機及相簿
+    // 照片上傳按鈕，可開啟相機及相簿
     @IBAction func selectImageButton(_ sender: Any) {
     
       
@@ -118,7 +111,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
             var imageUrl = ""
             let clothesId = NSUUID().uuidString
             
-            //顏色偵測區
+            //顏色偵測區(開始)
             
             if let colors = TDImageColors(image: image , count: 64, threshold: 0.25) as? [UIColor]{
                 print("顏色測試")
@@ -140,7 +133,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                 print("顏色在這",colorStringItems)
             }
             
-             //顏色偵測區
+             //顏色偵測區(結束)
             
             //存圖片到資料庫
             let storageRef = Storage.storage().reference().child("image")
@@ -214,7 +207,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         
         return dateString
     }
-    
     
     
     
