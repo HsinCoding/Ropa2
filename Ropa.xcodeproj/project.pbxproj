@@ -26,6 +26,7 @@
 		E38D29D520E0C03200A0EFD0 /* ClothesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D29D420E0C03200A0EFD0 /* ClothesManager.swift */; };
 		E38D29DD20E0CF6200A0EFD0 /* ClothesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D29DC20E0CF6200A0EFD0 /* ClothesListCell.swift */; };
 		E38D29E120E2330C00A0EFD0 /* testForImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D29E020E2330C00A0EFD0 /* testForImageUpload.swift */; };
+		E3E19FFE2106EA7D004B854B /* AddNewOutfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E19FFD2106EA7D004B854B /* AddNewOutfitViewController.swift */; };
 		E3EE737120E4C04000B41B20 /* ClothesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EE737020E4C04000B41B20 /* ClothesDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		E38D29D420E0C03200A0EFD0 /* ClothesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesManager.swift; sourceTree = "<group>"; };
 		E38D29DC20E0CF6200A0EFD0 /* ClothesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesListCell.swift; sourceTree = "<group>"; };
 		E38D29E020E2330C00A0EFD0 /* testForImageUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testForImageUpload.swift; sourceTree = "<group>"; };
+		E3E19FFD2106EA7D004B854B /* AddNewOutfitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewOutfitViewController.swift; sourceTree = "<group>"; };
 		E3EE737020E4C04000B41B20 /* ClothesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 		E36385BD20F463EA00FB81AC /* Controller  */ = {
 			isa = PBXGroup;
 			children = (
+				E3E19FFF2106EA89004B854B /* MyOutfit */,
 				E36386DD20FF26EE00FB81AC /* MyWardrobe */,
 				E36385B520F300A100FB81AC /* SignIn  */,
 				E36385C020F476D800FB81AC /* MyClothes */,
@@ -184,6 +187,14 @@
 				E38D29DC20E0CF6200A0EFD0 /* ClothesListCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E3E19FFF2106EA89004B854B /* MyOutfit */ = {
+			isa = PBXGroup;
+			children = (
+				E3E19FFD2106EA7D004B854B /* AddNewOutfitViewController.swift */,
+			);
+			path = MyOutfit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E19FFE2106EA7D004B854B /* AddNewOutfitViewController.swift in Sources */,
 				E36385B920F3019600FB81AC /* LoginViewController.swift in Sources */,
 				E363867820F7286300FB81AC /* ClothesListViewController.swift in Sources */,
 				E36386B820FD92C600FB81AC /* Outfit.swift in Sources */,
@@ -468,7 +480,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Ropa/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Test.com.Ropa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -483,7 +498,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Ropa/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Test.com.Ropa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -9,13 +9,15 @@
 import Foundation
 class User {
  
+    var name: String
     let uid : String
     var myfavorite : Array<String>
     var myClothes : Array<Clothes> //自己的衣服
     var myOutfit : Array<Outfit> = []
     
     
-    init(uid: String,myfavorite : Array<String>, myClothes: Array<Clothes>, myOutfit:  Array<Outfit>) {
+    init(name: String, uid: String,myfavorite : Array<String>, myClothes: Array<Clothes>, myOutfit:  Array<Outfit>) {
+        self.name = name
         self.uid = uid
         self.myfavorite = myfavorite
         self.myClothes = myClothes
