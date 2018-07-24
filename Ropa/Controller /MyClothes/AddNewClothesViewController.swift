@@ -148,7 +148,15 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                             return
                         }
                         print("Successfully to the clothes value ")
-                        self.performSegue(withIdentifier: "goToClothesList", sender: nil)
+                        
+                        let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)
+                        let clothesListViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClothesListViewController")
+                        self.navigationController?.pushViewController(clothesListViewController, animated: true)
+                        
+                        
+                        
+                        
+//                        self.performSegue(withIdentifier: "goToClothesList", sender: nil)
 
                     })
     

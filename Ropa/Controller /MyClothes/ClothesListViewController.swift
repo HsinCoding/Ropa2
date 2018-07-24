@@ -105,6 +105,13 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
 
     
     
+    @IBAction func AddButton(_ sender: Any) {
+        
+        let mainStory = UIStoryboard(name: "Main", bundle: nil)
+        let addNewClothesViewController = mainStory.instantiateViewController(withIdentifier: "AddNewClothesViewController")
+        self.navigationController?.pushViewController(addNewClothesViewController, animated: true)
+        
+    }
     
     
     override func didReceiveMemoryWarning() {

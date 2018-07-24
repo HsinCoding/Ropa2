@@ -20,9 +20,11 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if user != nil {
             
-                guard let nav = self.storyboard?.instantiateViewController(withIdentifier: "NAVAGATION") as? UINavigationController else { return }
-                self.present(nav, animated: true, completion: nil)
+//                guard let nav = self.storyboard?.instantiateViewController(withIdentifier: "NAVAGATION") as? UINavigationController else { return }
                 
+                 guard let nav = self.storyboard?.instantiateViewController(withIdentifier: "NAVAGATION") as? UITabBarController else { return }
+                
+                self.present(nav, animated: true, completion: nil)
                 
                 print("恭喜登入")
             } else {

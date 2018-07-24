@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Add New Clothes View Controller-->
         <scene sceneID="uN7-Px-KLW">
             <objects>
-                <viewController id="XUF-FL-eh3" customClass="AddNewClothesViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewClothesViewController" id="XUF-FL-eh3" customClass="AddNewClothesViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tdk-eC-oIl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bam-ZX-uAi"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="P2B-NX-XzI"/>
                     <navigationItem key="navigationItem" id="Ij6-kC-T9P"/>
                     <connections>
                         <outlet property="brandTextField" destination="CE3-2M-maQ" id="fch-lC-0pU"/>
@@ -109,12 +108,11 @@
                         <outlet property="itemPickerView" destination="VPX-BO-uZX" id="gvr-i8-1Vw"/>
                         <outlet property="priceTextField" destination="uG2-Od-xcx" id="LdM-rb-Ept"/>
                         <outlet property="shopLocateTextField" destination="4ca-fN-RE2" id="oDV-7c-J2p"/>
-                        <segue destination="CqM-l9-cUe" kind="presentation" identifier="goToClothesList" id="n43-Ql-wJX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKZ-Kn-Blh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="722" y="-526"/>
+            <point key="canvasLocation" x="1606" y="714"/>
         </scene>
         <!--Clothes Details View Controller-->
         <scene sceneID="qrv-ZS-P1W">
@@ -200,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDO-CB-Api" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="-528.48575712143929"/>
+            <point key="canvasLocation" x="1606" y="-48"/>
         </scene>
         <!--First Screen View Controller-->
         <scene sceneID="tux-xP-egg">
@@ -343,25 +341,7 @@
             </objects>
             <point key="canvasLocation" x="-1892" y="110"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hLG-5H-ZbF">
-            <objects>
-                <navigationController storyboardIdentifier="NAVAGATION" automaticallyAdjustsScrollViewInsets="NO" id="iio-Ev-Xle" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kv5-AP-ha8">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="deZ-hs-OLn" kind="relationship" relationship="rootViewController" id="fdd-k6-co8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lIJ-ks-8fy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-750" y="585"/>
-        </scene>
-        <!--Item-->
+        <!--Clothes List View Controller-->
         <scene sceneID="WLn-f3-IKp">
             <objects>
                 <viewController storyboardIdentifier="ClothesListViewController" id="CqM-l9-cUe" customClass="ClothesListViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
@@ -434,11 +414,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="List" id="1sq-JZ-Nke">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dwm-kc-fad">
-                                            <connections>
-                                                <segue destination="XUF-FL-eh3" kind="show" id="T9K-Wn-3QO"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dwm-kc-fad"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -452,38 +428,59 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tsA-hN-14R"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="zgB-ZM-hPO"/>
+                    <navigationItem key="navigationItem" id="qcY-hC-Wr1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AGp-D4-sfU">
+                            <connections>
+                                <action selector="AddButton:" destination="CqM-l9-cUe" id="bjI-uA-1lL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="clothesCollectionView" destination="tJ6-uE-2Zg" id="3hb-uw-vUr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rV2-uh-8HG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="-528"/>
+            <point key="canvasLocation" x="716" y="311"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="4bn-DM-Gkr">
+        <scene sceneID="UfV-cm-5DO">
             <objects>
-                <tabBarController storyboardIdentifier="TabController " id="deZ-hs-OLn" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ZYH-xF-GUg"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4rf-7C-R6b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                <tabBarController storyboardIdentifier="NAVAGATION" automaticallyAdjustsScrollViewInsets="NO" id="rMr-Hz-hkM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Txm-dL-iQO">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="XUF-FL-eh3" kind="relationship" relationship="viewControllers" id="2Xd-En-wVV"/>
-                        <segue destination="CqM-l9-cUe" kind="relationship" relationship="viewControllers" id="JCO-Uz-Svb"/>
+                        <segue destination="3XA-Uc-SZD" kind="relationship" relationship="viewControllers" id="3yD-HQ-PWl"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ar-f0-o5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yxH-VF-UaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-18" y="584"/>
+            <point key="canvasLocation" x="-1004" y="583.3583208395803"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="wI6-xe-0wu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3XA-Uc-SZD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="zgB-ZM-hPO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LRH-wd-dug">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CqM-l9-cUe" kind="relationship" relationship="rootViewController" id="X4l-nd-RUS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zsd-U6-7ZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="311"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JCO-Uz-Svb"/>
         <segue reference="cvO-6X-Afz"/>
-        <segue reference="2Xd-En-wVV"/>
     </inferredMetricsTieBreakers>
 </document>
