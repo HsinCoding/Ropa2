@@ -84,6 +84,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         dismiss(animated: true, completion: nil)
     }
     
+    
     //儲存按鈕
     @IBAction func saveButton(_ sender: Any) {
         
@@ -105,9 +106,9 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
             
             let clothesId = NSUUID().uuidString
             
-            //顏色偵測區(開始)
+            //顏色偵測區
             
-            if let colors = TDImageColors(image: image , count: 64, threshold: 0.25) as? [UIColor]{
+            if let colors = TDImageColors(image: self.clothesImageView.image , count: 64, threshold: 0.25) as? [UIColor]{
                 print("顏色測試")
                 var colorStringItems = ""
                 var colorArray = [Array<String>]()
@@ -126,8 +127,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                 }
                 print("顏色在這",colorStringItems)
             }
-            
-            //顏色偵測區(結束)
             
             
             //存圖片到資料庫
