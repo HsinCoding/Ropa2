@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,22 +23,6 @@
                                 <rect key="frame" x="90" y="64" width="194" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jov-KY-P01">
-                                <rect key="frame" x="89" y="617" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="儲存"/>
-                                <connections>
-                                    <action selector="saveButton:" destination="XUF-FL-eh3" eventType="touchUpInside" id="0gL-99-Z9C"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uE-Fr-Nep">
-                                <rect key="frame" x="234" y="617" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="取消"/>
-                                <connections>
-                                    <action selector="cancelButton:" destination="XUF-FL-eh3" eventType="touchUpInside" id="tWX-to-gIc"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="品牌" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CE3-2M-maQ">
                                 <rect key="frame" x="139" y="396" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -100,7 +85,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Bam-ZX-uAi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ij6-kC-T9P"/>
+                    <navigationItem key="navigationItem" id="Ij6-kC-T9P">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="MSs-Wh-Uqf">
+                                <connections>
+                                    <action selector="saveButton:" destination="XUF-FL-eh3" id="Ofw-3N-fKq"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Clear" id="Nic-CT-lpm">
+                                <connections>
+                                    <action selector="cancelButton:" destination="XUF-FL-eh3" id="vTG-1F-L3G"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="brandTextField" destination="CE3-2M-maQ" id="fch-lC-0pU"/>
                         <outlet property="clothesImageView" destination="xBf-e6-oa4" id="gm1-7t-V4b"/>
@@ -112,21 +110,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKZ-Kn-Blh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305" y="-398"/>
+            <point key="canvasLocation" x="2113" y="-396"/>
         </scene>
-        <!--Item-->
+        <!--Add New Outfit View Controller-->
         <scene sceneID="hpM-CP-QDg">
             <objects>
-                <viewController storyboardIdentifier="AddNewOutfitViewController" id="9M0-9c-bPT" customClass="AddNewOutfitViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9M0-9c-bPT" customClass="AddNewOutfitViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WEI-FR-qVF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HhX-ix-4Wn">
-                                <rect key="frame" x="66" y="52" width="240" height="222"/>
+                                <rect key="frame" x="67" y="64" width="240" height="222"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xeo-5v-Wyv">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Xeo-5v-Wyv">
                                 <rect key="frame" x="126" y="384" width="121" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -134,7 +132,7 @@
                                     <segment title="私密"/>
                                 </segments>
                                 <connections>
-                                    <action selector="privacySegmentedControl:" destination="9M0-9c-bPT" eventType="valueChanged" id="McU-5O-MVb"/>
+                                    <action selector="privacySegmentedControl:" destination="9M0-9c-bPT" eventType="valueChanged" id="trU-gC-xZX"/>
                                 </connections>
                             </segmentedControl>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="90R-S1-XVh">
@@ -145,14 +143,6 @@
                                     <outlet property="delegate" destination="9M0-9c-bPT" id="jRM-Wg-bAy"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb3-BG-13q">
-                                <rect key="frame" x="152" y="282" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="上傳圖片"/>
-                                <connections>
-                                    <action selector="selectImageButton:" destination="9M0-9c-bPT" eventType="touchUpInside" id="ILR-a6-aVu"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Wav-eQ-POK">
                                 <rect key="frame" x="126" y="338" width="115" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -166,14 +156,6 @@
                                     <action selector="seasonSegmentedControl:" destination="9M0-9c-bPT" eventType="valueChanged" id="BMP-eX-dkT"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffI-A9-6dd">
-                                <rect key="frame" x="99" y="617" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="儲存"/>
-                                <connections>
-                                    <action selector="saveButton:" destination="9M0-9c-bPT" eventType="touchUpInside" id="0yY-st-3Em"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7U-UM-hPI">
                                 <rect key="frame" x="269" y="617" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -189,11 +171,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb3-BG-13q">
+                                <rect key="frame" x="152" y="294" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="上傳圖片"/>
+                                <connections>
+                                    <action selector="selectImageButton:" destination="9M0-9c-bPT" eventType="touchUpInside" id="ILR-a6-aVu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="LaM-fR-FGW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ehq-EY-rXS"/>
+                    <navigationItem key="navigationItem" id="bQh-NY-FGw">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="pIw-gf-9kH"/>
+                            <barButtonItem title="Clear" id="QmH-xx-unC"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="noteTextView" destination="adt-6Y-FvK" id="Ybq-XY-Dwt"/>
                         <outlet property="outfitImageView" destination="HhX-ix-4Wn" id="RMz-XQ-HDY"/>
@@ -201,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGS-96-yHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608.79999999999995" y="560.86956521739137"/>
+            <point key="canvasLocation" x="855" y="1084"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RSd-YI-eNt">
@@ -251,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2q-aT-clZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1417" y="561"/>
+            <point key="canvasLocation" x="3295.1999999999998" y="560.86956521739137"/>
         </scene>
         <!--Clothes Details View Controller-->
         <scene sceneID="qrv-ZS-P1W">
@@ -593,6 +588,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="3XA-Uc-SZD" kind="relationship" relationship="viewControllers" id="3yD-HQ-PWl"/>
+                        <segue destination="b8I-cg-ESo" kind="relationship" relationship="viewControllers" id="Whn-xF-3gl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yxH-VF-UaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -618,8 +614,45 @@
             </objects>
             <point key="canvasLocation" x="-151" y="-713"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="bkY-Ie-jYV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b8I-cg-ESo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Ehq-EY-rXS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FaC-Ft-0lW">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9M0-9c-bPT" kind="relationship" relationship="rootViewController" id="rWf-6k-8zx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejt-kK-mnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="1084"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H2I-Y6-v5p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nPF-2U-qr3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DZb-jx-QBN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XUF-FL-eh3" kind="relationship" relationship="rootViewController" id="klE-hP-dfL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9oM-lz-oY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1305" y="-396"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cvO-6X-Afz"/>
+        <segue reference="0As-jc-RTj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,20 +7,26 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
+import FirebaseAuth
+import FirebaseDatabase
+
+
 
 class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    var privacySetting = ""
 
     @IBOutlet weak var outfitImageView: UIImageView!
+    
+    
     
     @IBAction func seasonSegmentedControl(_ sender: UISegmentedControl) {
     }
     
-    @IBAction func privacySegmentedControl(_ sender: UISegmentedControl) {
-    }
-    
     @IBOutlet weak var noteTextView: UITextView!
-    
+    var ref: DatabaseReference?
    
     
     // 上傳照片按鈕設定
@@ -81,13 +87,61 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     
-    @IBAction func saveButton(_ sender: UIButton) {
+    //公開與否設定
+    @IBAction func privacySegmentedControl(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            privacySetting = "public"
+        }
+        else {
+            privacySetting = "privacy"
+        }
     }
     
-    
+    //儲存設定
+    @IBAction func saveButton(_ sender: UIButton) {
+        
+        ref = Database.database().reference()
+        
+        //if let 確認是否填寫資料
+        
+        guard let image = self.outfitImageView.image else{ return }
+        guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let outfitId = NSUUID().uuidString
+        
+        //顏色偵測
+        
+        
+        //存圖片到資料庫
+        let storageRef = Storage.storage().reference().child("outfitImage")
+        
+        
+        storageRef.child(uid).child(outfitId).putData(uploadData, metadata: nil) { (data, error) in
+            if error != nil {
+                print("Error about put data:\(error?.localizedDescription)")
+                return
+            }
+            
+            storageRef.child(uid).child(outfitId).downloadURL(completion: { (url, error) in
+                guard let outfitImageUrl = url else { return }
+                print("imgurl",outfitImageUrl)
+                
+                let dateString = self.dateCreatDetail()
+                
+//                let dic = ["outfitImageUrl":"\(outfitI)mageUrl)"]
+//                
+//                let dic = ["imgUrl":"\(imageUrl)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
+        
+            })
+        }
+    }
+        
+        
+    //取消設定
     @IBAction func cancelButton(_ sender: UIButton) {
    
-    
+    outfitImageView.image = nil
+    noteTextView.text = ""
     
     }
     
@@ -105,6 +159,15 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
 
-    
+    func dateCreatDetail() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd/HH/mm"
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        return dateString
+    }
 
 }
+

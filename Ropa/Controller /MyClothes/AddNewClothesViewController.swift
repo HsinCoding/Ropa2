@@ -46,7 +46,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     
     // 照片上傳按鈕，可開啟相機及相簿
     @IBAction func selectImageButton(_ sender: Any) {
-    
       
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -78,8 +77,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         present(imagePickerAlertController, animated: true, completion: nil)
     }
     
-    
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -87,9 +84,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    //儲存
+    //儲存按鈕
     @IBAction func saveButton(_ sender: Any) {
         
         itemPickerView.selectedRow(inComponent: 0) // didSelectRow 相同意思
@@ -108,7 +103,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
             guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
             guard let uid = Auth.auth().currentUser?.uid else { return }
             
-            var imageUrl = ""
             let clothesId = NSUUID().uuidString
             
             //顏色偵測區(開始)
@@ -133,7 +127,8 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                 print("顏色在這",colorStringItems)
             }
             
-             //顏色偵測區(結束)
+            //顏色偵測區(結束)
+            
             
             //存圖片到資料庫
             let storageRef = Storage.storage().reference().child("image")
@@ -148,11 +143,11 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                 storageRef.child(uid).child(clothesId).downloadURL(completion: { (url, error) in
                     guard let imageUrl = url else { return }
                     print("imguel",imageUrl)
-
+                    
                     let dateString = self.dateCreatDetail()
                     
                     let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
-        
+                    
                     //存入服飾資料於Firebase
                     Database.database().reference().child("clothes").child("\(clothesId)").setValue(dic, withCompletionBlock: { (error, ref) in
                         if let error = error {
@@ -165,16 +160,17 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                         let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)
                         let clothesListViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClothesListViewController")
                         self.navigationController?.pushViewController(clothesListViewController, animated: true)
-              
-//                        self.performSegue(withIdentifier: "goToClothesList", sender: nil)
+                        
+                        //                        self.performSegue(withIdentifier: "goToClothesList", sender: nil)
                     })
-    
+                    
                 })
             }
         }
     }
     
 
+    //取消按鈕
     @IBAction func cancelButton(_ sender: Any) {
         
         clothesImageView.image = nil
@@ -182,13 +178,17 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         priceTextField.text = ""
         shopLocateTextField.text = ""
         
-//        performSegue(withIdentifier: "goToWardrobe", sender: nil)
-        
     }
     
+    
+    
+    
+
+
+    
     //自動生成時間
-    //For UI 呈現
     func dateCreat() -> String {
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
@@ -197,8 +197,9 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         
         return dateString
     }
-    //For Save
+    
     func dateCreatDetail() -> String {
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd/HH/mm"
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
