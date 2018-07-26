@@ -77,9 +77,29 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         detailsViewController.type = clothing[indexPath.row].type
         
         
+        // 顏色處理
+        var colorArrayFromfirebase = clothing[indexPath.row].color
+        var splitedcolorStringArray = colorArrayFromfirebase.components(separatedBy: "/")
         
+        var colorStringItems = ""
+        var colorArray = [Array<String>]()
         
+        for i in splitedcolorStringArray {
+            let splitedcolorStringArrayDetail = i.components(separatedBy: ",")
+            colorArray.append(splitedcolorStringArrayDetail)
+        }
         
+        for (index,i) in colorArray.enumerated() {
+            
+            guard index < 5 else { break }
+            let red = i[0]
+            let green = i[1]
+            let blue = i[2]
+            let alpha = i[3]
+            if let colorView = self.view.viewWithTag(200+index) {
+                colorView.backgroundColor = UIColor(red: red.toCGFloat()!, green: green.toCGFloat()!, blue: blue.toCGFloat()!, alpha: alpha.toCGFloat()!)
+            }
+        }
         
         
         // 補上圖片
