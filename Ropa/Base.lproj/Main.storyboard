@@ -156,14 +156,6 @@
                                     <action selector="seasonSegmentedControl:" destination="9M0-9c-bPT" eventType="valueChanged" id="BMP-eX-dkT"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7U-UM-hPI">
-                                <rect key="frame" x="269" y="617" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="取消"/>
-                                <connections>
-                                    <action selector="cancelButton:" destination="9M0-9c-bPT" eventType="touchUpInside" id="qns-9P-njo"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="備註" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="adt-6Y-FvK">
                                 <rect key="frame" x="67" y="420" width="240" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -185,8 +177,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="bQh-NY-FGw">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="pIw-gf-9kH"/>
-                            <barButtonItem title="Clear" id="QmH-xx-unC"/>
+                            <barButtonItem systemItem="save" id="pIw-gf-9kH">
+                                <connections>
+                                    <action selector="saveButton:" destination="9M0-9c-bPT" id="J5y-yh-E5y"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Clear" id="QmH-xx-unC">
+                                <connections>
+                                    <action selector="clearButton:" destination="9M0-9c-bPT" id="Cf9-0q-iNb"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2q-aT-clZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3295.1999999999998" y="560.86956521739137"/>
+            <point key="canvasLocation" x="1721" y="859"/>
         </scene>
         <!--Clothes Details View Controller-->
         <scene sceneID="qrv-ZS-P1W">
@@ -490,17 +490,17 @@
                                     <constraint firstAttribute="width" constant="375" id="HZn-O9-CIs"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9D4-oh-zxX">
-                                    <size key="itemSize" width="169" height="186"/>
+                                    <size key="itemSize" width="169" height="225"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="teM-ta-V6q" customClass="ClothesListViewCell" customModule="Ropa" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="169" height="186"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="169" height="225"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="169" height="186"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="169" height="225"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nL6-Yz-d02">
@@ -509,6 +509,16 @@
                                                 </imageView>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BCi-5c-Uk7">
                                                     <rect key="frame" x="10" y="149" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJW-ut-ygu">
+                                                    <rect key="frame" x="26" y="180" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvT-MG-g0H">
+                                                    <rect key="frame" x="63" y="180" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -523,7 +533,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzz-6M-cTX">
-                                                    <rect key="frame" x="109" y="153" width="47" height="20"/>
+                                                    <rect key="frame" x="112" y="169" width="47" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -531,7 +541,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="169" height="186"/>
+                                        <size key="customSize" width="169" height="225"/>
                                         <connections>
                                             <outlet property="brandLabel" destination="Nzz-6M-cTX" id="RKf-uV-C1S"/>
                                             <outlet property="imageView" destination="nL6-Yz-d02" id="Tjp-NF-rjy"/>
@@ -575,7 +585,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rV2-uh-8HG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="-714"/>
+            <point key="canvasLocation" x="568.79999999999995" y="-714.69265367316348"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UfV-cm-5DO">
@@ -583,6 +593,7 @@
                 <tabBarController storyboardIdentifier="NAVAGATION" automaticallyAdjustsScrollViewInsets="NO" id="rMr-Hz-hkM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Txm-dL-iQO">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

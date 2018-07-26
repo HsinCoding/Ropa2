@@ -97,20 +97,16 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
+    
     //儲存設定
-    @IBAction func saveButton(_ sender: UIButton) {
-        
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
         ref = Database.database().reference()
         
         //if let 確認是否填寫資料
-        
         guard let image = self.outfitImageView.image else{ return }
         guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let outfitId = NSUUID().uuidString
-        
-        //顏色偵測
-        
         
         //存圖片到資料庫
         let storageRef = Storage.storage().reference().child("outfitImage")
@@ -127,24 +123,17 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
                 print("imgurl",outfitImageUrl)
                 
                 let dateString = self.dateCreatDetail()
+            
                 
-//                let dic = ["outfitImageUrl":"\(outfitI)mageUrl)"]
-//                
-//                let dic = ["imgUrl":"\(imageUrl)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
-        
             })
         }
     }
-        
-        
-    //取消設定
-    @IBAction func cancelButton(_ sender: UIButton) {
-   
-    outfitImageView.image = nil
-    noteTextView.text = ""
     
+        //清空設定
+    @IBAction func clearButton(_ sender: UIBarButtonItem) {
+        outfitImageView.image = nil
+        noteTextView.text = ""
     }
-    
     
     
     override func viewDidLoad() {

@@ -100,17 +100,19 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         }
         else {
             
-            guard let image = self.clothesImageView?.image else { return }
-            guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
+            guard let image = self.clothesImageView?.image else { print("image issiue");return }
+            guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { print("uploadData issiue");return }
             guard let uid = Auth.auth().currentUser?.uid else { return }
-            
+            var colorStringItems = ""
             let clothesId = NSUUID().uuidString
+            print(clothesId)
             
             //顏色偵測區
+          
             
-            if let colors = TDImageColors(image: self.clothesImageView.image , count: 64, threshold: 0.25) as? [UIColor]{
+            if let colors = TDImageColors(image: self.clothesImageView.image , count: 64, threshold: 0.25).colors as? [UIColor]{
                 print("顏色測試")
-                var colorStringItems = ""
+               
                 var colorArray = [Array<String>]()
                 
                 
@@ -123,14 +125,12 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                     let alphaColor = "\(rgba.red)/"
                     colorStringItem = redColor + greenColor + blueColor + alphaColor
                     colorStringItems += colorStringItem
-                    
                 }
-                print("顏色在這",colorStringItems)
             }
             
             
             //存圖片到資料庫
-            let storageRef = Storage.storage().reference().child("image")
+            let storageRef = Storage.storage().reference().child("clothesImage")
             
             
             storageRef.child(uid).child(clothesId).putData(uploadData, metadata: nil) { (data, error) in
@@ -145,7 +145,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                     
                     let dateString = self.dateCreatDetail()
                     
-                    let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"UIcolorString","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
+                    let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"\(colorStringItems)","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
                     
                     //存入服飾資料於Firebase
                     Database.database().reference().child("clothes").child("\(clothesId)").setValue(dic, withCompletionBlock: { (error, ref) in
@@ -154,6 +154,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                             return
                         }
                         print("Successfully to the clothes value ")
+                        
                         
                         //轉換頁面
                         let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)

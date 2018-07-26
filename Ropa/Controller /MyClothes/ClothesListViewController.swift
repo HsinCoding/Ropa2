@@ -75,6 +75,13 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         detailsViewController.price = clothing[indexPath.row].price
         detailsViewController.date = clothing[indexPath.row].date
         detailsViewController.type = clothing[indexPath.row].type
+        
+        
+        
+        
+        
+        
+        
         // 補上圖片
 //        detailsViewController.image = clothing[indexPath.row].img
         print("kk",clothing[indexPath.row].price)
