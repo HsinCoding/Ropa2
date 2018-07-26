@@ -96,11 +96,6 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         let alphaWithFifth  = fifth[3]
         cell.fifthView.backgroundColor = UIColor(red: redWithFifth.toCGFloat()!, green: greenWithFifth.toCGFloat()!, blue: blueWithFifth.toCGFloat()!, alpha: alphaWithFifth.toCGFloat()!)
         
-        
-        //顏色處理
-        
-        
-        
          //圖片呈現部分
 //第三種方法(始)
         let imgUrlString = clothes.img
@@ -128,32 +123,8 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         detailsViewController.price = clothing[indexPath.row].price
         detailsViewController.date = clothing[indexPath.row].date
         detailsViewController.type = clothing[indexPath.row].type
+        detailsViewController.color = clothing[indexPath.row].color
         
-        
-//        // 顏色處理
-//        var colorArrayFromfirebase = clothing[indexPath.row].color
-//        var splitedcolorStringArray = colorArrayFromfirebase.components(separatedBy: "/")
-//
-//        var colorStringItems = ""
-//        var colorArray = [Array<String>]()
-//
-//        for i in splitedcolorStringArray {
-//            let splitedcolorStringArrayDetail = i.components(separatedBy: ",")
-//            colorArray.append(splitedcolorStringArrayDetail)
-//        }
-//
-//        for (index,i) in colorArray.enumerated() {
-//
-//            guard index < 5 else { break }
-//            let red = i[0]
-//            let green = i[1]
-//            let blue = i[2]
-//            let alpha = i[3]
-//            if let colorView = self.view.viewWithTag(200+index) {
-//                colorView.backgroundColor = UIColor(red: red.toCGFloat()!, green: green.toCGFloat()!, blue: blue.toCGFloat()!, alpha: alpha.toCGFloat()!)
-//            }
-//        }
-//        //顏色處理
         
         
         // 補上圖片

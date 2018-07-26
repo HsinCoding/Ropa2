@@ -24,6 +24,31 @@ class ClothesDetailsViewController: UIViewController {
     var price = ""
     var date = ""
     var type = ""
+    var color = ""
+    
+    
+    func showColor() {
+        var colorArray = [Array<String>]()
+        var splitedcolorStringArray = color.components(separatedBy: "/")
+        for i in splitedcolorStringArray {
+            let splitedcolorStringArrayDetail = i.components(separatedBy: ",")
+            colorArray.append(splitedcolorStringArrayDetail)
+        }
+        
+        for (index,i) in colorArray.enumerated() {
+            
+            guard index < 5 else { break }
+            let red = i[0]
+            let green = i[1]
+            let blue = i[2]
+            let alpha = i[3]
+            if let colorView = self.view.viewWithTag(200+index) {
+                colorView.backgroundColor = UIColor(red: red.toCGFloat()!, green: green.toCGFloat()!, blue: blue.toCGFloat()!, alpha: alpha.toCGFloat()!)
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +56,7 @@ class ClothesDetailsViewController: UIViewController {
         prieceLabel.text = price
         dateLabel.text = date
         typeLabel.text = type
-        
+        showColor()
         
         
         

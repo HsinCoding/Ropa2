@@ -109,8 +109,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
             
             //顏色偵測區
           
-            
-            if let colors = TDImageColors(image: self.clothesImageView.image , count: 64, threshold: 0.25).colors as? [UIColor]{
+            if let colors = TDImageColors(image: image , count: 64, threshold: 0.25).colors as? [UIColor]{
                 print("顏色測試")
                
                 var colorArray = [Array<String>]()
@@ -122,7 +121,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                     let redColor = "\(rgba.red),"
                     let greenColor = "\(rgba.green),"
                     let blueColor = "\(rgba.blue),"
-                    let alphaColor = "\(rgba.red)/"
+                    let alphaColor = "\(rgba.alpha)/"
                     colorStringItem = redColor + greenColor + blueColor + alphaColor
                     colorStringItems += colorStringItem
                 }
@@ -161,7 +160,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
                         let clothesListViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClothesListViewController")
                         self.navigationController?.pushViewController(clothesListViewController, animated: true)
                         
-                        //                        self.performSegue(withIdentifier: "goToClothesList", sender: nil)
                     })
                     
                 })
