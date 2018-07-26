@@ -47,8 +47,61 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         let clothes = clothing[indexPath.row]
         cell.brandLabel.text = clothes.brand
         
-         //圖片呈現部分
+        // 顏色處理
+        let colorArrayFromfirebase = clothes.color
+        let splitedcolorStringArray = colorArrayFromfirebase.components(separatedBy: "/")
         
+        var colorStringItems = ""
+        var colorArray = [Array<String>]()
+        
+        for i in splitedcolorStringArray {
+            let splitedcolorStringArrayDetail = i.components(separatedBy: ",")
+            colorArray.append(splitedcolorStringArrayDetail)
+        }
+        
+        //存入各個view
+        let first = colorArray[0]
+        let redWithFirst = first[0]
+        let greenWithFirst = first[1]
+        let blueWithFirst = first[2]
+        let alphaWithFirst = first[3]
+        cell.firstView.backgroundColor = UIColor(red: redWithFirst.toCGFloat()!, green: greenWithFirst.toCGFloat()!, blue: blueWithFirst.toCGFloat()!, alpha: alphaWithFirst.toCGFloat()!)
+
+        let second = colorArray[1]
+        let redWithSecond = second[0]
+        let greenWithSecond = second[1]
+        let blueWithSecond = second[2]
+        let alphaWithSecond = second[3]
+        cell.secondView.backgroundColor = UIColor(red: redWithSecond.toCGFloat()!, green: greenWithSecond.toCGFloat()!, blue: blueWithSecond.toCGFloat()!, alpha: alphaWithSecond.toCGFloat()!)
+        
+        let third = colorArray[2]
+        let redWithThird = third[0]
+        let greenWithThird  = third[1]
+        let blueWithThird = third[2]
+        let alphaWithThird  = third[3]
+        cell.thirdView.backgroundColor = UIColor(red: redWithThird.toCGFloat()!, green: greenWithThird.toCGFloat()!, blue: blueWithThird.toCGFloat()!, alpha: alphaWithThird.toCGFloat()!)
+        
+
+        let forth = colorArray[3]
+        let redWithForth = forth[0]
+        let greenWithForth  = forth[1]
+        let blueWithForth = forth[2]
+        let alphaWithForth  = forth[3]
+        cell.forthView.backgroundColor = UIColor(red: redWithForth.toCGFloat()!, green: greenWithForth.toCGFloat()!, blue: blueWithForth.toCGFloat()!, alpha: alphaWithForth.toCGFloat()!)
+        
+        let fifth = colorArray[4]
+        let redWithFifth = fifth[0]
+        let greenWithFifth  = fifth[1]
+        let blueWithFifth = fifth[2]
+        let alphaWithFifth  = fifth[3]
+        cell.fifthView.backgroundColor = UIColor(red: redWithFifth.toCGFloat()!, green: greenWithFifth.toCGFloat()!, blue: blueWithFifth.toCGFloat()!, alpha: alphaWithFifth.toCGFloat()!)
+        
+        
+        //顏色處理
+        
+        
+        
+         //圖片呈現部分
 //第三種方法(始)
         let imgUrlString = clothes.img
         if let imgUrl = URL(string: imgUrlString) {
@@ -77,29 +130,30 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         detailsViewController.type = clothing[indexPath.row].type
         
         
-        // 顏色處理
-        var colorArrayFromfirebase = clothing[indexPath.row].color
-        var splitedcolorStringArray = colorArrayFromfirebase.components(separatedBy: "/")
-        
-        var colorStringItems = ""
-        var colorArray = [Array<String>]()
-        
-        for i in splitedcolorStringArray {
-            let splitedcolorStringArrayDetail = i.components(separatedBy: ",")
-            colorArray.append(splitedcolorStringArrayDetail)
-        }
-        
-        for (index,i) in colorArray.enumerated() {
-            
-            guard index < 5 else { break }
-            let red = i[0]
-            let green = i[1]
-            let blue = i[2]
-            let alpha = i[3]
-            if let colorView = self.view.viewWithTag(200+index) {
-                colorView.backgroundColor = UIColor(red: red.toCGFloat()!, green: green.toCGFloat()!, blue: blue.toCGFloat()!, alpha: alpha.toCGFloat()!)
-            }
-        }
+//        // 顏色處理
+//        var colorArrayFromfirebase = clothing[indexPath.row].color
+//        var splitedcolorStringArray = colorArrayFromfirebase.components(separatedBy: "/")
+//
+//        var colorStringItems = ""
+//        var colorArray = [Array<String>]()
+//
+//        for i in splitedcolorStringArray {
+//            let splitedcolorStringArrayDetail = i.components(separatedBy: ",")
+//            colorArray.append(splitedcolorStringArrayDetail)
+//        }
+//
+//        for (index,i) in colorArray.enumerated() {
+//
+//            guard index < 5 else { break }
+//            let red = i[0]
+//            let green = i[1]
+//            let blue = i[2]
+//            let alpha = i[3]
+//            if let colorView = self.view.viewWithTag(200+index) {
+//                colorView.backgroundColor = UIColor(red: red.toCGFloat()!, green: green.toCGFloat()!, blue: blue.toCGFloat()!, alpha: alpha.toCGFloat()!)
+//            }
+//        }
+//        //顏色處理
         
         
         // 補上圖片

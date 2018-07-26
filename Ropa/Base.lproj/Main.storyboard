@@ -541,10 +541,16 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.64705882349999999" green="0.66666666669999997" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="customSize" width="169" height="225"/>
                                         <connections>
                                             <outlet property="brandLabel" destination="Nzz-6M-cTX" id="RKf-uV-C1S"/>
+                                            <outlet property="fifthView" destination="yvT-MG-g0H" id="gmo-FZ-4lQ"/>
+                                            <outlet property="firstView" destination="BCi-5c-Uk7" id="5OH-ny-kve"/>
+                                            <outlet property="forthView" destination="bJW-ut-ygu" id="0Xy-Sh-Gr5"/>
                                             <outlet property="imageView" destination="nL6-Yz-d02" id="Tjp-NF-rjy"/>
+                                            <outlet property="secondView" destination="aLP-lg-lQM" id="2OK-Os-j4W"/>
+                                            <outlet property="thirdView" destination="ZyZ-jw-VLJ" id="uEA-2B-VRL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

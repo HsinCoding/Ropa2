@@ -31,6 +31,10 @@ class ClothesDetailsViewController: UIViewController {
         prieceLabel.text = price
         dateLabel.text = date
         typeLabel.text = type
+        
+        
+        
+        
     }
     
     
