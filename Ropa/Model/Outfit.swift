@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Outfit {
+struct Outfit: Codable {
     let id: String
     let img: String
     let style: String

@@ -90,8 +90,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
         
         itemPickerView.selectedRow(inComponent: 0) // didSelectRow 相同意思
         type = typeArray[itemPickerView.selectedRow(inComponent: 0)]
-        print(type)
-        
         
         ref = Database.database().reference()
         if brandTextField.text == "" || priceTextField.text == "" || shopLocateTextField.text == "" {

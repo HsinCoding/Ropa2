@@ -9,6 +9,7 @@
 import UIKit
 
 class myWardrobeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     let clothArray = ["衣","褲","裙","包","飾","鞋"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,12 +27,6 @@ class myWardrobeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
-    
-    
-   
-
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()

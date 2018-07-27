@@ -16,16 +16,18 @@ import FirebaseDatabase
 
 class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var privacySetting = ""
-
+    var publicSetting: Bool = false
+    var seasonString: String = ""
+    var style = ""
     @IBOutlet weak var outfitImageView: UIImageView!
+ 
     
-    
-    
-    @IBAction func seasonSegmentedControl(_ sender: UISegmentedControl) {
-    }
     
     @IBOutlet weak var noteTextView: UITextView!
+   
+    @IBOutlet weak var stylePickerView: UIPickerView!
+    
+    
     var ref: DatabaseReference?
    
     
@@ -90,16 +92,36 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
     //公開與否設定
     @IBAction func privacySegmentedControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            privacySetting = "public"
+            publicSetting = true
         }
         else {
-            privacySetting = "privacy"
+            publicSetting = false
         }
     }
     
     
+    @IBAction func seasonSegmentedControl(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            seasonString = "春"
+        } else if sender.selectedSegmentIndex == 1 {
+            seasonString = "夏"
+        } else if sender.selectedSegmentIndex == 2 {
+            seasonString = "秋"
+        } else if sender.selectedSegmentIndex == 3 {
+            seasonString = "冬"
+        }
+    }
+    
+    
+    
+    
+    
     //儲存設定
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
+        stylePickerView.selectedRow(inComponent: 0) // didSelectRow 相同意思
+        style = styleArray[stylePickerView.selectedRow(inComponent: 0)]
+        
         ref = Database.database().reference()
         
         //if let 確認是否填寫資料
@@ -118,17 +140,43 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
                 return
             }
             
+            //取圖片網址
             storageRef.child(uid).child(outfitId).downloadURL(completion: { (url, error) in
                 guard let outfitImageUrl = url else { return }
                 print("imgurl",outfitImageUrl)
                 
-                let dateString = self.dateCreatDetail()
-            
+                 let dateString = self.dateCreatDetail()
+             
+                 let dic = [
+                    "imgUrl":"\(outfitImageUrl)",
+                    "season":"\(self.seasonString)",
+                    "style":"\(self.style)",
+                    "owner":"\(uid)",
+                    "note":"\(self.noteTextView.text!)",
+                    "date":"\(dateString)",
+                    "public":"\(self.publicSetting)"
+                    ] as [String:Any]
                 
+                //存入服飾資料於Firebase
+                Database.database().reference().child("outfit").child("\(outfitId)").setValue(dic, withCompletionBlock: { (error, ref) in
+                    if let error = error {
+                        print("Failed to set the outfit value", error)
+                        return
+                    }
+                    print("Successfully to the outfit value ")
+                    
+                    
+                    //轉換頁面
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let OutfitListViewController = mainStoryboard.instantiateViewController(withIdentifier: "OutfitListViewController")
+                    self.navigationController?.pushViewController(OutfitListViewController, animated: true)
+                    
+                })
             })
         }
     }
     
+
         //清空設定
     @IBAction func clearButton(_ sender: UIBarButtonItem) {
         outfitImageView.image = nil

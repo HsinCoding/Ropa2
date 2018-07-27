@@ -125,7 +125,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Xeo-5v-Wyv">
-                                <rect key="frame" x="126" y="384" width="121" height="29"/>
+                                <rect key="frame" x="126" y="375" width="121" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="公開"/>
@@ -192,16 +192,58 @@
                     <connections>
                         <outlet property="noteTextView" destination="adt-6Y-FvK" id="Ybq-XY-Dwt"/>
                         <outlet property="outfitImageView" destination="HhX-ix-4Wn" id="RMz-XQ-HDY"/>
+                        <outlet property="stylePickerView" destination="90R-S1-XVh" id="CBf-ne-vot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGS-96-yHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855" y="1084"/>
+            <point key="canvasLocation" x="853.60000000000002" y="1083.5082458770617"/>
         </scene>
-        <!--View Controller-->
+        <!--My Wardrobe View Controller-->
+        <scene sceneID="UeP-AR-smA">
+            <objects>
+                <viewController id="hrp-4T-DN9" customClass="myWardrobeViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DCH-Ps-Tqy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7F4-lm-bZA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="JtU-jZ-0Fa">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JtU-jZ-0Fa" id="IOZ-Td-6BK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hrp-4T-DN9" id="R62-DG-Zzt"/>
+                                    <outlet property="delegate" destination="hrp-4T-DN9" id="l1v-Oi-zXx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7F4-lm-bZA" firstAttribute="leading" secondItem="G22-XP-cda" secondAttribute="leading" id="6K6-ya-U6f"/>
+                            <constraint firstItem="7F4-lm-bZA" firstAttribute="top" secondItem="DCH-Ps-Tqy" secondAttribute="top" id="eU4-Ib-Vj2"/>
+                            <constraint firstItem="7F4-lm-bZA" firstAttribute="bottom" secondItem="G22-XP-cda" secondAttribute="bottom" id="iG1-RS-B6L"/>
+                            <constraint firstItem="7F4-lm-bZA" firstAttribute="trailing" secondItem="G22-XP-cda" secondAttribute="trailing" id="xir-38-IAJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G22-XP-cda"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7n8-DR-hBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="358"/>
+        </scene>
+        <!--Outfit List View Controller-->
         <scene sceneID="RSd-YI-eNt">
             <objects>
-                <viewController id="ZAP-6I-JPP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutfitListViewController" id="ZAP-6I-JPP" customClass="OutfitListViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oSl-Po-kVF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2q-aT-clZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1721" y="859"/>
+            <point key="canvasLocation" x="1590" y="1084"/>
         </scene>
         <!--Clothes Details View Controller-->
         <scene sceneID="qrv-ZS-P1W">
