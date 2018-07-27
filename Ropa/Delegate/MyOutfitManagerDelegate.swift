@@ -8,7 +8,7 @@
 
 import Foundation
 protocol MyOutfitManagerDelegate: class {
-    func manager(_ manager: MyOutfitManager, didfetch Clothing:[Outfit])
+    func manager(_ manager: MyOutfitManager, didfetch Outfits:[Outfit])
     
     func manager(_ manager: MyOutfitManager, didFaithWith error: Error)
 }
