@@ -8,7 +8,7 @@
 
 import UIKit
 
-class myWardrobeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyWardrobeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let clothArray = ["衣","褲","裙","包","飾","鞋"]
     

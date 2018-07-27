@@ -12,26 +12,22 @@ import FirebaseAuth
 
 class ClothesManager {
     var ref: DatabaseReference?
-    var ref1: DatabaseReference?
     weak var delegate: ClotheseManagerDelegate?
     
     static let share = ClothesManager()//tank
     
-    var myUser : User?
+//    var myUser : User?
 
     func getClothes() {
         var clothing: [Clothes] = []
-        ref = Database.database().reference()
+      
         
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
         
-        var userOK = false
-        var clothes = false
-        
-        // 找使用者文章
-        ref1 = Database.database().reference().child("clothes")
-        let query = ref1?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
+        // 找使用者單品
+        ref = Database.database().reference().child("clothes")
+        let query = ref?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
         
         query?.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: Any] else { return }

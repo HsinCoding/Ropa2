@@ -154,7 +154,7 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
                     "owner":"\(uid)",
                     "note":"\(self.noteTextView.text!)",
                     "date":"\(dateString)",
-                    "public":"\(self.publicSetting)"
+                    "isPublic":"\(self.publicSetting)"
                     ] as [String:Any]
                 
                 //存入服飾資料於Firebase

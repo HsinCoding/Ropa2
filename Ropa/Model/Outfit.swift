@@ -17,5 +17,5 @@ struct Outfit: Codable {
     let isPublic: Bool
     let date: String
     let owner: String
-    let like: Int
+//    let like: Int
 }
