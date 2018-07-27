@@ -12,3 +12,5 @@ protocol MyOutfitManagerDelegate: class {
     
     func manager(_ manager: MyOutfitManager, didFaithWith error: Error)
 }
+
+

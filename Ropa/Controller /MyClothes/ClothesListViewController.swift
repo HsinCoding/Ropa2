@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 
 
-class ClothesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ClotheseManagerDelegate {
+class ClothesListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ClothesManagerDelegate {
     
     
     @IBOutlet weak var clothesCollectionView: UICollectionView!

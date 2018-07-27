@@ -38,10 +38,5 @@ class MyOutfitManager {
             outfits.append(outfit)
             self.delegate?.manager(self, didfetch: outfits)
         })
-        
-        
     }
-    
-    
-    
 }

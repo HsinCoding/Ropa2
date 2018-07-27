@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class ClothesManager {
     var ref: DatabaseReference?
-    weak var delegate: ClotheseManagerDelegate?
+    weak var delegate: ClothesManagerDelegate?
     
     static let share = ClothesManager()//tank
     
