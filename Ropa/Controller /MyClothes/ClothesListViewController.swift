@@ -97,13 +97,13 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.fifthView.backgroundColor = UIColor(red: redWithFifth.toCGFloat()!, green: greenWithFifth.toCGFloat()!, blue: blueWithFifth.toCGFloat()!, alpha: alphaWithFifth.toCGFloat()!)
         
          //圖片呈現部分
-//第三種方法(始)
         let imgUrlString = clothes.img
         if let imgUrl = URL(string: imgUrlString) {
             URLSession.shared.dataTask(with: imgUrl) { (data, response, error) in
                 if error != nil {
                      print("Download Image Task Fail: \(error!.localizedDescription)")
-                } else if let imageData = data {
+                }
+                else if let imageData = data {
                     DispatchQueue.main.async {
                         cell.imageView.image = UIImage(data: imageData)
                     }
@@ -124,11 +124,11 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         detailsViewController.date = clothing[indexPath.row].date
         detailsViewController.type = clothing[indexPath.row].type
         detailsViewController.color = clothing[indexPath.row].color
-        
+        detailsViewController.imgUrl = clothing[indexPath.row].img
         
         
         // 補上圖片
-//        detailsViewController.image = clothing[indexPath.row].img
+        
         print("kk",clothing[indexPath.row].price)
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }

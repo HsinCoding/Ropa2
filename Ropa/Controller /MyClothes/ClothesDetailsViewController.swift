@@ -18,13 +18,12 @@ class ClothesDetailsViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     
     
-    
-    var image = UIImage()
     var brand = ""
     var price = ""
     var date = ""
     var type = ""
     var color = ""
+    var imgUrl = ""
     
     
     func showColor() {
@@ -48,6 +47,22 @@ class ClothesDetailsViewController: UIViewController {
         }
     }
     
+    func uploadImage(){
+        let imageUrlString = imgUrl
+        if let imgUrl = URL(string: imageUrlString) {
+            URLSession.shared.dataTask(with: imgUrl) { (data, response, error) in
+                if error != nil {
+                    print("Download Image Task Fail: \(error?.localizedDescription)")
+                }
+                else if let imageData = data {
+                    DispatchQueue.main.async {
+                        self.clothesViewImage.image = UIImage(data: imageData)
+                    }
+                }
+            }.resume()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +72,11 @@ class ClothesDetailsViewController: UIViewController {
         dateLabel.text = date
         typeLabel.text = type
         showColor()
+        uploadImage()
+        
+        
+        
+        
         
         
         
