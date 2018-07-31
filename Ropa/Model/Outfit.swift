@@ -14,7 +14,7 @@ struct Outfit: Codable {
     let style: String
     let season: String
     let note: String
-    let isPublic: Bool
+    let isPublic: String
     let date: String
     let owner: String
 //    let like: Int

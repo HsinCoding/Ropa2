@@ -26,6 +26,16 @@ class SigninViewController: UIViewController {
                 let sucessAlert = UIAlertController(title: "註冊成功", message: "", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "請重新登入", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) in
                     self.dismiss(animated: true, completion: nil)
+                    
+                    //增加寫入user的資料
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                 })
     
                 sucessAlert.addAction(okAction)

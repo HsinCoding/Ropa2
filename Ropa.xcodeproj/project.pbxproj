@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04CA6532CB5AB459EDD4BAF3 /* Pods_Ropa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A4EE947A5799C4D31283C4 /* Pods_Ropa.framework */; };
-		E30C2FFB210B77D8007B3746 /* OutfitListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C2FFA210B77D8007B3746 /* OutfitListTableViewCell.swift */; };
+		E30C2FFB210B77D8007B3746 /* OutfitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C2FFA210B77D8007B3746 /* OutfitListCell.swift */; };
 		E36385B720F3015F00FB81AC /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385B620F3015F00FB81AC /* FirstScreenViewController.swift */; };
 		E36385B920F3019600FB81AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385B820F3019600FB81AC /* LoginViewController.swift */; };
 		E36385BB20F30D4800FB81AC /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385BA20F30D4800FB81AC /* SigninViewController.swift */; };
@@ -37,7 +37,7 @@
 		21E976E542212D375270961F /* Pods-Ropa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ropa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ropa/Pods-Ropa.debug.xcconfig"; sourceTree = "<group>"; };
 		6BC38D17385FA3CDA51C655B /* Pods-Ropa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ropa.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ropa/Pods-Ropa.release.xcconfig"; sourceTree = "<group>"; };
 		E2A4EE947A5799C4D31283C4 /* Pods_Ropa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ropa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E30C2FFA210B77D8007B3746 /* OutfitListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitListTableViewCell.swift; sourceTree = "<group>"; };
+		E30C2FFA210B77D8007B3746 /* OutfitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitListCell.swift; sourceTree = "<group>"; };
 		E36385B620F3015F00FB81AC /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		E36385B820F3019600FB81AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E36385BA20F30D4800FB81AC /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 		E36385C020F476D800FB81AC /* MyClothes */ = {
 			isa = PBXGroup;
 			children = (
-				E389051C20DCDDF500288B57 /* AddNewClothesViewController.swift */,
 				E363867720F7286300FB81AC /* ClothesListViewController.swift */,
+				E389051C20DCDDF500288B57 /* AddNewClothesViewController.swift */,
 				E3EE737020E4C04000B41B20 /* ClothesDetailsViewController.swift */,
 			);
 			path = MyClothes;
@@ -181,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				E38D29DC20E0CF6200A0EFD0 /* ClothesListCollectionViewCell.swift */,
-				E30C2FFA210B77D8007B3746 /* OutfitListTableViewCell.swift */,
+				E30C2FFA210B77D8007B3746 /* OutfitListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,8 +189,8 @@
 		E3E19FFF2106EA89004B854B /* MyOutfit */ = {
 			isa = PBXGroup;
 			children = (
-				E3E19FFD2106EA7D004B854B /* AddNewOutfitViewController.swift */,
 				E3E22A50210B003C00401EA0 /* OutfitListViewController.swift */,
+				E3E19FFD2106EA7D004B854B /* AddNewOutfitViewController.swift */,
 			);
 			path = MyOutfit;
 			sourceTree = "<group>";
@@ -200,8 +200,8 @@
 			children = (
 				E3E22A52210B267700401EA0 /* MyOutfitManagerDelegate.swift */,
 				E3E22A57210B4AEF00401EA0 /* MyOutfitManager.swift */,
-				E38D29D420E0C03200A0EFD0 /* ClothesManager.swift */,
 				E3E22A59210B4C3600401EA0 /* ClothesManagerDelegate.swift */,
+				E38D29D420E0C03200A0EFD0 /* ClothesManager.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 				E3E22A58210B4AEF00401EA0 /* MyOutfitManager.swift in Sources */,
 				E3E19FFE2106EA7D004B854B /* AddNewOutfitViewController.swift in Sources */,
 				E36385B920F3019600FB81AC /* LoginViewController.swift in Sources */,
-				E30C2FFB210B77D8007B3746 /* OutfitListTableViewCell.swift in Sources */,
+				E30C2FFB210B77D8007B3746 /* OutfitListCell.swift in Sources */,
 				E363867820F7286300FB81AC /* ClothesListViewController.swift in Sources */,
 				E36386B820FD92C600FB81AC /* Outfit.swift in Sources */,
 				E389050B20DCB99000288B57 /* myWardrobeViewController.swift in Sources */,

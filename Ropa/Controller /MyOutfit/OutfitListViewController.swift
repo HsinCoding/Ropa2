@@ -15,10 +15,8 @@ class OutfitListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var outfits:[Outfit] = []
     var ref: DatabaseReference?
-    
+    let myOutfitManager = MyOutfitManager()
     @IBOutlet weak var outfitTableView: UITableView!
-    
-    
     
     func manager(_ manager: MyOutfitManager, didfetch Outfits: [Outfit]) {
         outfits = Outfits
@@ -36,22 +34,48 @@ class OutfitListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = outfitTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OutfitListCell
+       let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OutfitListCell
     
         let outfit = outfits[indexPath.row]
+        cell.seasonLabel.text = outfit.season
+        cell.styleLabel.text = outfit.style
+        cell.userNameLabel.text = "Default"
         
-        
-        
+        //圖片處理部分
+        let imgUrlString = outfit.img
+        if let imgUrl = URL(string: imgUrlString) {
+            URLSession.shared.dataTask(with: imgUrl) { (data, response, error) in
+                if error != nil {
+                    print("Download Image Task Fail: \(error!.localizedDescription)")
+                }
+                else if let imageData = data {
+                    DispatchQueue.main.async {
+                        cell.outfitImageView.image = UIImage(data: imageData)
+                    }
+                }
+            }.resume()
+        }
+    
         return cell 
     }
     
     
-
-    
+    @IBAction func addButton(_ sender: Any) {
+        let mainStory = UIStoryboard(name: "Main", bundle: nil)
+        let addNewOutfitViewController = mainStory.instantiateViewController(withIdentifier: "AddNewOutfitViewController")
+        self.navigationController?.pushViewController(addNewOutfitViewController, animated: true)
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        if Auth.auth().currentUser?.uid != nil {
+            myOutfitManager.delegate = self
+            myOutfitManager.getMyOutfit()
+        }
 
     }
 

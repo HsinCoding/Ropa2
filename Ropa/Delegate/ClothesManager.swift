@@ -16,12 +16,9 @@ class ClothesManager {
     
     static let share = ClothesManager()//tank
     
-//    var myUser : User?
-
     func getClothes() {
         var clothing: [Clothes] = []
-      
-        
+    
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
         
