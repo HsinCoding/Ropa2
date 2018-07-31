@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="1447" y="1084"/>
         </scene>
-        <!--View Controller-->
+        <!--Outfit Details View Controller-->
         <scene sceneID="SLt-sl-TEx">
             <objects>
-                <viewController id="ZBO-kD-BPI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OutfitDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZBO-kD-BPI" customClass="OutfitDetailsViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Cv-7z-Lgq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,9 +234,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwY-4k-v4y">
-                                <rect key="frame" x="173" y="617" width="46" height="30"/>
+                                <rect key="frame" x="181" y="602" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="修改"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="穿搭備註" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UDB-fa-nhX">
                                 <rect key="frame" x="76" y="436" width="240" height="128"/>
@@ -249,6 +249,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TkG-9m-X6a"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="hPl-1N-442" id="rsO-B6-PT2"/>
+                        <outlet property="noteTextView" destination="UDB-fa-nhX" id="dtT-d2-U1H"/>
+                        <outlet property="outfitImageView" destination="6Wr-Hl-JI2" id="Y6N-e2-Trg"/>
+                        <outlet property="seasonLabel" destination="IER-IE-C94" id="5lf-nK-lId"/>
+                        <outlet property="styleLabel" destination="VKc-L4-DGo" id="1CA-wM-pbC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gl4-JO-hvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

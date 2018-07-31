@@ -59,6 +59,22 @@ class OutfitListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let outfitDetailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "OutfitDetailsViewController") as! OutfitDetailsViewController
+        
+        outfitDetailsViewController.date = outfits[indexPath.row].date
+        outfitDetailsViewController.note = outfits[indexPath.row].note
+        outfitDetailsViewController.season = outfits[indexPath.row].season
+        outfitDetailsViewController.style = outfits[indexPath.row].style
+        outfitDetailsViewController.imgUrl = outfits[indexPath.row].img
+        
+        self.navigationController?.pushViewController(outfitDetailsViewController, animated: true)
+    }
+    
+    
+    
+    
     @IBAction func addButton(_ sender: Any) {
         let mainStory = UIStoryboard(name: "Main", bundle: nil)
         let addNewOutfitViewController = mainStory.instantiateViewController(withIdentifier: "AddNewOutfitViewController")
