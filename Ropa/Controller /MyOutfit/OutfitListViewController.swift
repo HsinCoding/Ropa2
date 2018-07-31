@@ -55,7 +55,6 @@ class OutfitListViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }.resume()
         }
-    
         return cell 
     }
     
