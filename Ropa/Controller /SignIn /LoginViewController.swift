@@ -20,8 +20,6 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if user != nil {
             
-//                guard let nav = self.storyboard?.instantiateViewController(withIdentifier: "NAVAGATION") as? UINavigationController else { return }
-                
                  guard let nav = self.storyboard?.instantiateViewController(withIdentifier: "NAVAGATION") as? UITabBarController else { return }
                 
                 self.present(nav, animated: true, completion: nil)
@@ -32,12 +30,11 @@ class LoginViewController: UIViewController {
                     print(error)
                 
                 //設定警告控制器
-                let failAlert = UIAlertController(title: "登入失敗", message: "請確認您輸入資料是否正確", preferredStyle: .alert)
+                let failAlert = UIAlertController(title: "登入失敗", message: "請確認輸入資料是否正確", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "重新確認", style: .cancel, handler: nil)
                 failAlert.addAction(okAction)
                 
                 self.present(failAlert, animated: true, completion: nil)
-                
             }
         }
     }
@@ -47,22 +44,11 @@ class LoginViewController: UIViewController {
         self.performSegue(withIdentifier: "backToFirstView", sender: nil)
     }
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-       
     }
-    
-
-   
-
 }

@@ -12,17 +12,9 @@ class ClothesListViewCell: UICollectionViewCell {
    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var brandLabel: UILabel!
-    
     @IBOutlet weak var firstView: UIView!
-    
     @IBOutlet weak var secondView: UIView!
-    
     @IBOutlet weak var thirdView: UIView!
-    
     @IBOutlet weak var forthView: UIView!
-    
     @IBOutlet weak var fifthView: UIView!
-    
-    
-    
 }

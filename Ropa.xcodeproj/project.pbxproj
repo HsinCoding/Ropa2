@@ -10,6 +10,9 @@
 		04CA6532CB5AB459EDD4BAF3 /* Pods_Ropa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A4EE947A5799C4D31283C4 /* Pods_Ropa.framework */; };
 		E30C2FFB210B77D8007B3746 /* OutfitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C2FFA210B77D8007B3746 /* OutfitListCell.swift */; };
 		E30C2FFF21105A73007B3746 /* OutfitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C2FFE21105A73007B3746 /* OutfitDetailsViewController.swift */; };
+		E30C300121119041007B3746 /* OutfitWallManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C300021119041007B3746 /* OutfitWallManagerDelegate.swift */; };
+		E30C3003211194B3007B3746 /* OutfitWallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C3002211194B3007B3746 /* OutfitWallManager.swift */; };
+		E30C30062111A70E007B3746 /* OutfitWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30C30052111A70E007B3746 /* OutfitWallViewController.swift */; };
 		E36385B720F3015F00FB81AC /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385B620F3015F00FB81AC /* FirstScreenViewController.swift */; };
 		E36385B920F3019600FB81AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385B820F3019600FB81AC /* LoginViewController.swift */; };
 		E36385BB20F30D4800FB81AC /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36385BA20F30D4800FB81AC /* SigninViewController.swift */; };
@@ -40,6 +43,9 @@
 		E2A4EE947A5799C4D31283C4 /* Pods_Ropa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ropa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30C2FFA210B77D8007B3746 /* OutfitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitListCell.swift; sourceTree = "<group>"; };
 		E30C2FFE21105A73007B3746 /* OutfitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitDetailsViewController.swift; sourceTree = "<group>"; };
+		E30C300021119041007B3746 /* OutfitWallManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitWallManagerDelegate.swift; sourceTree = "<group>"; };
+		E30C3002211194B3007B3746 /* OutfitWallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitWallManager.swift; sourceTree = "<group>"; };
+		E30C30052111A70E007B3746 /* OutfitWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitWallViewController.swift; sourceTree = "<group>"; };
 		E36385B620F3015F00FB81AC /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		E36385B820F3019600FB81AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E36385BA20F30D4800FB81AC /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +101,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E30C30042111A6E6007B3746 /* OutfitWall */ = {
+			isa = PBXGroup;
+			children = (
+				E30C30052111A70E007B3746 /* OutfitWallViewController.swift */,
+			);
+			path = OutfitWall;
+			sourceTree = "<group>";
+		};
 		E36385B520F300A100FB81AC /* SignIn  */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +132,7 @@
 		E36385BD20F463EA00FB81AC /* Controller  */ = {
 			isa = PBXGroup;
 			children = (
+				E30C30042111A6E6007B3746 /* OutfitWall */,
 				E36385B520F300A100FB81AC /* SignIn  */,
 				E3E19FFF2106EA89004B854B /* MyOutfit */,
 				E36386DD20FF26EE00FB81AC /* MyWardrobe */,
@@ -205,6 +220,8 @@
 				E3E22A57210B4AEF00401EA0 /* MyOutfitManager.swift */,
 				E3E22A59210B4C3600401EA0 /* ClothesManagerDelegate.swift */,
 				E38D29D420E0C03200A0EFD0 /* ClothesManager.swift */,
+				E30C300021119041007B3746 /* OutfitWallManagerDelegate.swift */,
+				E30C3002211194B3007B3746 /* OutfitWallManager.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -330,10 +347,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E30C3003211194B3007B3746 /* OutfitWallManager.swift in Sources */,
 				E3E22A58210B4AEF00401EA0 /* MyOutfitManager.swift in Sources */,
+				E30C30062111A70E007B3746 /* OutfitWallViewController.swift in Sources */,
 				E3E19FFE2106EA7D004B854B /* AddNewOutfitViewController.swift in Sources */,
 				E36385B920F3019600FB81AC /* LoginViewController.swift in Sources */,
 				E30C2FFB210B77D8007B3746 /* OutfitListCell.swift in Sources */,
+				E30C300121119041007B3746 /* OutfitWallManagerDelegate.swift in Sources */,
 				E363867820F7286300FB81AC /* ClothesListViewController.swift in Sources */,
 				E36386B820FD92C600FB81AC /* Outfit.swift in Sources */,
 				E389050B20DCB99000288B57 /* myWardrobeViewController.swift in Sources */,
