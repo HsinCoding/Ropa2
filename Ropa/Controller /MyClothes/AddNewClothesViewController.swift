@@ -177,11 +177,6 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     }
     
     
-    
-    
-
-
-    
     //自動生成時間
     func dateCreat() -> String {
         

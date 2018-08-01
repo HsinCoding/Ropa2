@@ -163,7 +163,7 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
                         print("Failed to set the outfit value", error)
                         return
                     }
-                    print("Successfully to the outfit value ")
+                    print("Successfully to the outfit value")
                     
                     
                     //轉換頁面
