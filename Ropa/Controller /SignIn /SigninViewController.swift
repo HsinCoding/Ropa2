@@ -9,12 +9,22 @@
 import UIKit
 import FirebaseAuth
 
+
 class SigninViewController: UIViewController {
     
+    var userDate = ""
     
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userDatePicker: UIDatePicker!
+    
+    @IBAction func userDatePickerAction(_ sender: UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        userDate = dateFormatter.string(from: userDatePicker.date)
+    }
+    
     
     @IBAction func signInButton(_ sender: Any) {
         
@@ -27,18 +37,18 @@ class SigninViewController: UIViewController {
                 let okAction = UIAlertAction(title: "請重新登入", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) in
                     self.dismiss(animated: true, completion: nil)
                     
-                    //增加寫入user的資料
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                 })
-    
                 sucessAlert.addAction(okAction)
+                self.present(sucessAlert, animated: true, completion: nil)
+                
+                
+                //寫入使用者資料
+                
+                
+                
+                
+                
+                
                 
                 guard let nav = self.storyboard?.instantiateViewController(withIdentifier: "NAVAGATION") as? UINavigationController else { return }
                 self.present(sucessAlert, animated: true, completion: nil)
