@@ -9,5 +9,6 @@
 import Foundation
 protocol OutfitWallManagerDelegate: class {
     func manager(_ manager: OutfitWallManager, didfetch OutfitWall: [Outfit])
+    
     func manager(_ manager: OutfitWallManager, didFaithWith error: Error)
 }

@@ -103,13 +103,25 @@ class SigninViewController: UIViewController {
                     if let error = error?.localizedDescription {
                         print(error)
                         
+                        
                         //如何處理登入error
-                        
-                        let failAlert = UIAlertController(title: "電郵格式有誤", message: "", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "請重新確認", style: .cancel, handler: nil)
-                        
-                        failAlert.addAction(okAction)
-                        self.present(failAlert, animated: true, completion: nil)
+                        //正規化處理
+                        if error == "The email address is badly formatted."{
+                            let failAlert = UIAlertController(title: "電郵格式有誤", message: "", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "請重新確認", style: .cancel, handler: nil)
+                            
+                            failAlert.addAction(okAction)
+                            self.present(failAlert, animated: true, completion: nil)
+
+                        } else if error == "The password must be 6 characters long or more." {
+                            let failAlert = UIAlertController(title: "密碼格式有誤", message: "", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "請確認六位數密碼", style: .cancel, handler: nil)
+                            
+                            failAlert.addAction(okAction)
+                            self.present(failAlert, animated: true, completion: nil)
+                        } 
+                       
+
                     }
                 }
             }
@@ -120,7 +132,6 @@ class SigninViewController: UIViewController {
     
     
     @IBAction func cancelButton(_ sender: Any) {
-    
         self.performSegue(withIdentifier: "backToFirstView", sender: nil)
     }
     
