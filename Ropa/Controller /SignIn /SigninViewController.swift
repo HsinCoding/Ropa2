@@ -103,7 +103,6 @@ class SigninViewController: UIViewController {
                     if let error = error?.localizedDescription {
                         print(error)
                         
-                        
                         //如何處理登入error
                         //正規化處理
                         if error == "The email address is badly formatted."{

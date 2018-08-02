@@ -54,9 +54,6 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
                 }
             }.resume()
         }
-        
-        
-        
         return cell 
     }
     

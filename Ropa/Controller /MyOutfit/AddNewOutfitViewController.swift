@@ -124,6 +124,9 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
         
         ref = Database.database().reference()
         
+        
+        
+        
         //if let 確認是否填寫資料
         guard let image = self.outfitImageView.image else{ return }
         guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }

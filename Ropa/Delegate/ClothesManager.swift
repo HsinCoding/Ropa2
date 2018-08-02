@@ -27,7 +27,7 @@ class ClothesManager {
         let query = ref?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
         
         query?.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            guard let dictionary = snapshot.value as? [String:Any] else { return }
             for key in dictionary.keys {
                 guard let valueDictionary = dictionary["\(key)"] as? [String: Any] else { return }
                 guard let brand = valueDictionary["brand"] as? String else { return }
