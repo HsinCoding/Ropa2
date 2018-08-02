@@ -10,14 +10,27 @@ import UIKit
 import FirebaseDatabase
 
 
-class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,OutfitWallManagerDelegate {
+class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,OutfitWallManagerDelegate,UserInfoManagerDelegate {
+    
     
     var outfitWall: [Outfit] = []
+    var userInfo: [UserInfo] = []
     var ref: DatabaseReference?
     let outfitWallmanager = OutfitWallManager()
     
     @IBOutlet weak var outfitWallTableView: UITableView!
     
+    
+    func manager(_ manager: UserInfoManager, didfetch UserInfo: [UserInfo]) {
+        userInfo = UserInfo
+        self.outfitWallTableView.reloadData()
+    }
+    
+    func manager(_ manager: UserInfoManager, didFaithWith error: Error) {
+        //skip
+    }
+
+   
     func manager(_ manager: OutfitWallManager, didfetch OutfitWall: [Outfit]) {
         outfitWall = OutfitWall
         self.outfitWallTableView.reloadData()
@@ -34,12 +47,25 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OutfitWallTableViewCell
         let outfitWall = self.outfitWall[indexPath.row]
+        var userNameForShow = ""
         cell.dateLabel.text = outfitWall.date
         cell.likeAmount.text = "按讚數量"
         cell.styleLabel.text = outfitWall.style
+        
     
+        //使用者暱稱轉換
+        let userID = outfitWall.owner
+        print("使用者ID在這",userID)
+        Database.database().reference().child("userInfo").child(userID).observeSingleEvent(of:.value) { (snapshot) in
+            guard let dictionary = snapshot.value as? [String:Any] else { return }
+            guard let userName = dictionary["userName"] as? String else { return }
+            userNameForShow = userName
+            cell.userNameLabel.text = userNameForShow
+        }
+       
         //圖片處理部分
         let imgUrlString = outfitWall.img
         if let imgUrl = URL(string: imgUrlString) {

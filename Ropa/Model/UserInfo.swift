@@ -33,6 +33,7 @@ struct UserInfo: Codable {
     var email: String
     var userBirthday: String
     var myfavorite : Array<String>
+    var img: String
 //    var myClothes : Array<Clothes> //自己的衣服
 //    var myOutfit : Array<Outfit> = []
     

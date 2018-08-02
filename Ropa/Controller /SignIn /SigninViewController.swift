@@ -83,7 +83,7 @@ class SigninViewController: UIViewController {
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
                     //寫入使用者資料
-                    let dic = ["email":"\(self.emailTextField.text!)","password":"\(self.passwordTextField.text!)","userName":"\(self.userNameTextField.text!)","userBirthday":"\(self.userDate)","myFavorite":"陣列"] as [String:Any]
+                    let dic = ["email":"\(self.emailTextField.text!)","password":"\(self.passwordTextField.text!)","userName":"\(self.userNameTextField.text!)","userBirthday":"\(self.userDate)","myFavorite":"陣列","userImage":"imageUrl"] as [String:Any]
                     
                     Database.database().reference().child("userInfo").child(uid).setValue(dic, withCompletionBlock: { (error, ref) in
                         if let error = error {

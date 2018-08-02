@@ -15,7 +15,7 @@ class UserInfoManager {
     weak var delegate: UserInfoManagerDelegate?
     
     func getUserInfo() {
-        var userInfo = ""
+        var userInfo: [UserInfo] = []
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
         
@@ -27,18 +27,13 @@ class UserInfoManager {
                 guard let email = valueDictionary["email"] as? String else { return }
                 guard let myFavorite = valueDictionary["myFavorite"] as? String else { return }
                 guard let userName = valueDictionary["userName"] as? String else { return }
-                let userInfo = UserInfo.init(userName: userName, email: email, userBirthday: "birthday", myfavorite: [myFavorite])
-               
+                let userSingle = UserInfo.init(userName: userName, email: email, userBirthday: "Birthday", myfavorite: [myFavorite], img: "imgUrl")
+                userInfo.append(userSingle)
+                
                 self.delegate?.manager(self, didfetch: userInfo)
                 
             }
-          
-            
-           
+
         })
-     
-    }
-    
-    
-    
+    }  
 }

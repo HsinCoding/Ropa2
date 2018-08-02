@@ -20,16 +20,10 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
     var seasonString: String = ""
     var style = ""
     @IBOutlet weak var outfitImageView: UIImageView!
- 
-    
-    
     @IBOutlet weak var noteTextView: UITextView!
-   
     @IBOutlet weak var stylePickerView: UIPickerView!
-    
-    
     var ref: DatabaseReference?
-   
+
     
     // 上傳照片按鈕設定
     @IBAction func selectImageButton(_ sender: UIButton) {
@@ -132,7 +126,6 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
             //存圖片到資料庫
             let storageRef = Storage.storage().reference().child("outfitImage")
             
-            
             storageRef.child(uid).child(outfitId).putData(uploadData, metadata: nil) { (data, error) in
                 if error != nil {
                     print("Error about put data:\(error?.localizedDescription)")
@@ -145,7 +138,7 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
                     print("imgurl",outfitImageUrl)
                     
                     let dateString = self.dateCreatDetail()
-                    
+
                     let dic = [
                         "imgUrl":"\(outfitImageUrl)",
                         "season":"\(self.seasonString)",

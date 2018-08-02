@@ -8,7 +8,7 @@
 
 import Foundation
 protocol UserInfoManagerDelegate: class {
-    func manager(_ manager: UserInfoManager, didfetch UserInfo: UserInfo)
+    func manager(_ manager: UserInfoManager, didfetch UserInfo: [UserInfo])
     
     func manager(_ manager: UserInfoManager, didFaithWith error: Error)
 }

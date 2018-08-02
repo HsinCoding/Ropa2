@@ -16,12 +16,15 @@ class OutfitWallManager {
     
     func getOutfitWall(){
         
-        var outfitWall:[Outfit] = []
+        var outfitWall: [Outfit] = []
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
         
         ref = Database.database().reference().child("outfit")
         let query = ref?.queryOrdered(byChild: "isPublic").queryEqual(toValue: "true")
+//        query?.observe(.value, with: { (snapshot) in
+        
+        
         query?.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
             print("第零個")
