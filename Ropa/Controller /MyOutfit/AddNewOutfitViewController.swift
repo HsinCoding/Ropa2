@@ -16,7 +16,7 @@ import FirebaseDatabase
 
 class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var publicSetting: Bool = false
+    var publicSetting: String = "false"
     var seasonString: String = ""
     var style = ""
     @IBOutlet weak var outfitImageView: UIImageView!
@@ -92,10 +92,10 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
     //公開與否設定
     @IBAction func privacySegmentedControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            publicSetting = true
+            publicSetting = "true"
         }
         else {
-            publicSetting = false
+            publicSetting = "false"
         }
     }
     
@@ -111,71 +111,68 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
             seasonString = "冬"
         }
     }
-    
-    
-    
-    
-    
+
     //儲存設定
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         
         stylePickerView.selectedRow(inComponent: 0) // didSelectRow 相同意思
         style = styleArray[stylePickerView.selectedRow(inComponent: 0)]
-        
         ref = Database.database().reference()
         
-        
-        
-        
-        //if let 確認是否填寫資料
-        guard let image = self.outfitImageView.image else{ return }
-        guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let outfitId = NSUUID().uuidString
-        
-        //存圖片到資料庫
-        let storageRef = Storage.storage().reference().child("outfitImage")
-        
-        
-        storageRef.child(uid).child(outfitId).putData(uploadData, metadata: nil) { (data, error) in
-            if error != nil {
-                print("Error about put data:\(error?.localizedDescription)")
-                return
-            }
+        if seasonString == "" || publicSetting == "" {
+            print("錯了錯了")
+            //error handing
+        } else {
+            //if let 確認是否填寫資料
+            guard let image = self.outfitImageView.image else{ return }
+            guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
+            guard let uid = Auth.auth().currentUser?.uid else { return }
+            let outfitId = NSUUID().uuidString
             
-            //取圖片網址
-            storageRef.child(uid).child(outfitId).downloadURL(completion: { (url, error) in
-                guard let outfitImageUrl = url else { return }
-                print("imgurl",outfitImageUrl)
+            //存圖片到資料庫
+            let storageRef = Storage.storage().reference().child("outfitImage")
+            
+            
+            storageRef.child(uid).child(outfitId).putData(uploadData, metadata: nil) { (data, error) in
+                if error != nil {
+                    print("Error about put data:\(error?.localizedDescription)")
+                    return
+                }
                 
-                 let dateString = self.dateCreatDetail()
-             
-                 let dic = [
-                    "imgUrl":"\(outfitImageUrl)",
-                    "season":"\(self.seasonString)",
-                    "style":"\(self.style)",
-                    "owner":"\(uid)",
-                    "note":"\(self.noteTextView.text!)",
-                    "date":"\(dateString)",
-                    "isPublic":"\(self.publicSetting)"
-                    ] as [String:Any]
-                
-                //存入服飾資料於Firebase
-                Database.database().reference().child("outfit").child("\(outfitId)").setValue(dic, withCompletionBlock: { (error, ref) in
-                    if let error = error {
-                        print("Failed to set the outfit value", error)
-                        return
-                    }
-                    print("Successfully to the outfit value")
+                //取圖片網址
+                storageRef.child(uid).child(outfitId).downloadURL(completion: { (url, error) in
+                    guard let outfitImageUrl = url else { return }
+                    print("imgurl",outfitImageUrl)
                     
+                    let dateString = self.dateCreatDetail()
                     
-                    //轉換頁面
-                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let OutfitListViewController = mainStoryboard.instantiateViewController(withIdentifier: "OutfitListViewController")
-                    self.navigationController?.pushViewController(OutfitListViewController, animated: true)
+                    let dic = [
+                        "imgUrl":"\(outfitImageUrl)",
+                        "season":"\(self.seasonString)",
+                        "style":"\(self.style)",
+                        "owner":"\(uid)",
+                        "note":"\(self.noteTextView.text!)",
+                        "date":"\(dateString)",
+                        "isPublic":"\(self.publicSetting)"
+                        ] as [String:Any]
                     
+                    //存入服飾資料於Firebase
+                    Database.database().reference().child("outfit").child("\(outfitId)").setValue(dic, withCompletionBlock: { (error, ref) in
+                        if let error = error {
+                            print("Failed to set the outfit value", error)
+                            return
+                        }
+                        print("Successfully to the outfit value")
+                        
+                        
+                        //轉換頁面
+                        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let OutfitListViewController = mainStoryboard.instantiateViewController(withIdentifier: "OutfitListViewController")
+                        self.navigationController?.pushViewController(OutfitListViewController, animated: true)
+                        
+                    })
                 })
-            })
+            }
         }
     }
     
