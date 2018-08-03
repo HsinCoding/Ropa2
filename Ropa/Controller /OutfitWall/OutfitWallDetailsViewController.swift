@@ -10,10 +10,27 @@ import UIKit
 
 class OutfitWallDetailsViewController: UIViewController {
 
+    
+    @IBOutlet weak var outfitWallImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var styleLabel: UILabel!
+    
+    
+    
+    var date = ""
+    var userName = ""
+    var imgUrl = ""
+    var style = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      dateLabel.text = date
+      styleLabel.text = style
+      userNameLabel.text = userName
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

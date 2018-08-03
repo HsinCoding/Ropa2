@@ -84,7 +84,32 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let outfitWallDetailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "OutfitWallDetailsViewController") as! OutfitWallDetailsViewController
+        var userNameForShow = ""
+        outfitWallDetailsViewController.date = outfitWall[indexPath.row].date
+        outfitWallDetailsViewController.imgUrl = outfitWall[indexPath.row].img
+        
+        //userName 處理
+        let userID = outfitWall[indexPath.row].owner
+        Database.database().reference().child("userInfo").child(userID).observeSingleEvent(of:.value) { (snapshot) in
+            guard let dictionary = snapshot.value as? [String:Any] else { return }
+            guard let userName = dictionary["userName"] as? String else { return }
+            userNameForShow = userName
+            outfitWallDetailsViewController.userName = userNameForShow
+        }
+        
+        
+        
+        
+        
+        outfitWallDetailsViewController.style = outfitWall[indexPath.row].style
+        self.navigationController?.pushViewController(outfitWallDetailsViewController, animated: true)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -97,15 +122,7 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }

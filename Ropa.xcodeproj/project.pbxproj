@@ -141,8 +141,8 @@
 		E36385BD20F463EA00FB81AC /* Controller  */ = {
 			isa = PBXGroup;
 			children = (
-				E30C30042111A6E6007B3746 /* OutfitWall */,
 				E36385B520F300A100FB81AC /* SignIn  */,
+				E30C30042111A6E6007B3746 /* OutfitWall */,
 				E3E19FFF2106EA89004B854B /* MyOutfit */,
 				E36386DD20FF26EE00FB81AC /* MyWardrobe */,
 				E36385C020F476D800FB81AC /* MyClothes */,
