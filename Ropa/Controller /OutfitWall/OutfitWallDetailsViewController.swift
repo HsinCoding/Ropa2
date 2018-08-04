@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class OutfitWallDetailsViewController: UIViewController {
 
@@ -19,17 +20,32 @@ class OutfitWallDetailsViewController: UIViewController {
     
     
     var date = ""
-    var userName = ""
+    var userId = ""
     var imgUrl = ""
     var style = ""
+    
+    
+    func getUserName() {
+        
+        Database.database().reference().child("userInfo").child(userId).observeSingleEvent(of:.value) { (snapshot) in
+            guard let dictionary = snapshot.value as? [String:Any] else { return }
+            guard let userName = dictionary["userName"] as? String else { return }
+            self.userNameLabel.text = userName
+            
+        }
+    }
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
       dateLabel.text = date
       styleLabel.text = style
-      userNameLabel.text = userName
-        
+      getUserName()
         
     }
 

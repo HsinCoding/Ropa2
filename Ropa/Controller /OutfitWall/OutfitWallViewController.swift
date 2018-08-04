@@ -58,7 +58,6 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
     
         //使用者暱稱轉換
         let userID = outfitWall.owner
-        print("使用者ID在這",userID)
         Database.database().reference().child("userInfo").child(userID).observeSingleEvent(of:.value) { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
             guard let userName = dictionary["userName"] as? String else { return }
@@ -90,21 +89,25 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
         var userNameForShow = ""
         outfitWallDetailsViewController.date = outfitWall[indexPath.row].date
         outfitWallDetailsViewController.imgUrl = outfitWall[indexPath.row].img
+        outfitWallDetailsViewController.style = outfitWall[indexPath.row].style
+        outfitWallDetailsViewController.userId = outfitWall[indexPath.row].owner
         
         //userName 處理
-        let userID = outfitWall[indexPath.row].owner
-        Database.database().reference().child("userInfo").child(userID).observeSingleEvent(of:.value) { (snapshot) in
-            guard let dictionary = snapshot.value as? [String:Any] else { return }
-            guard let userName = dictionary["userName"] as? String else { return }
-            userNameForShow = userName
-            outfitWallDetailsViewController.userName = userNameForShow
-        }
+//        let userID = outfitWall[indexPath.row].owner
+//        Database.database().reference().child("userInfo").child(userID).observeSingleEvent(of:.value) { (snapshot) in
+//                guard let dictionary = snapshot.value as? [String:Any] else { return }
+//                guard let userName = dictionary["userName"] as? String else { return }
+//                print("第三個",userName)
+//                userNameForShow = userName
+//                print("真的名字啦",userNameForShow)
+//                outfitWallDetailsViewController.userName = userNameForShow
+//                print("lalala",  outfitWallDetailsViewController.userName)
+//        }
+        
+        print("真的名字啦2",userNameForShow)
         
         
-        
-        
-        
-        outfitWallDetailsViewController.style = outfitWall[indexPath.row].style
+       
         self.navigationController?.pushViewController(outfitWallDetailsViewController, animated: true)
     }
     
