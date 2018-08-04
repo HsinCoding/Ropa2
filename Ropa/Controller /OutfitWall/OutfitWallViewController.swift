@@ -104,10 +104,7 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
 //                print("lalala",  outfitWallDetailsViewController.userName)
 //        }
         
-        print("真的名字啦2",userNameForShow)
-        
-        
-       
+   
         self.navigationController?.pushViewController(outfitWallDetailsViewController, animated: true)
     }
     

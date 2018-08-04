@@ -26,7 +26,6 @@ class OutfitWallDetailsViewController: UIViewController {
     
     
     func getUserName() {
-        
         Database.database().reference().child("userInfo").child(userId).observeSingleEvent(of:.value) { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
             guard let userName = dictionary["userName"] as? String else { return }
@@ -36,6 +35,21 @@ class OutfitWallDetailsViewController: UIViewController {
     }
     
     
+    func uploadImage(){
+        let imageUrlString = imgUrl
+        if let imgUrl = URL(string: imageUrlString) {
+            URLSession.shared.dataTask(with: imgUrl) { (data, response, error) in
+                if error != nil {
+                    print("Download Image Task Fail: \(error?.localizedDescription)")
+                }
+                else if let imageData = data {
+                    DispatchQueue.main.async {
+                        self.outfitWallImage.image = UIImage(data: imageData)
+                    }
+                }
+                }.resume()
+        }
+    }
     
     
     
@@ -46,7 +60,7 @@ class OutfitWallDetailsViewController: UIViewController {
       dateLabel.text = date
       styleLabel.text = style
       getUserName()
-        
+      uploadImage()
     }
 
     override func didReceiveMemoryWarning() {
