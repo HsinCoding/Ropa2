@@ -130,6 +130,7 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         detailsViewController.type = clothing[indexPath.row].type
         detailsViewController.color = clothing[indexPath.row].color
         detailsViewController.imgUrl = clothing[indexPath.row].img
+        detailsViewController.clothesId = clothing[indexPath.row].id
         
         
         // 補上圖片

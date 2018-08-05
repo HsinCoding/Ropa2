@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseDatabase
 
 class ClothesDetailsViewController: UIViewController {
     
@@ -24,6 +25,7 @@ class ClothesDetailsViewController: UIViewController {
     var type = ""
     var color = ""
     var imgUrl = ""
+    var clothesId = ""
     
     
     func showColor() {
@@ -62,6 +64,19 @@ class ClothesDetailsViewController: UIViewController {
             }.resume()
         }
     }
+    
+    
+    @IBAction func updateButton(_ sender: UIButton) {
+        print(clothesId)
+        let ref = Database.database().reference().child("outfit").child(clothesId)
+        ref.updateChildValues(<#T##values: [AnyHashable : Any]##[AnyHashable : Any]#>)
+        
+        
+        
+        
+    }
+    
+    
     
     
     override func viewDidLoad() {

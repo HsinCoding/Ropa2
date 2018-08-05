@@ -105,6 +105,16 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
             let clothesId = NSUUID().uuidString
             print(clothesId)
             
+            
+            //傳clothesId資訊到下個畫面
+            
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let clothesDetailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClothesDetailsViewController") as! ClothesDetailsViewController
+            
+            clothesDetailsViewController.clothesId = clothesId
+            
+            
+            
             //顏色偵測區
           
             if let colors = TDImageColors(image: image , count: 64, threshold: 0.25).colors as? [UIColor]{

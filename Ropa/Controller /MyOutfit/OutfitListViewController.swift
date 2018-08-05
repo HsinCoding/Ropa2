@@ -68,6 +68,7 @@ class OutfitListViewController: UIViewController, UITableViewDelegate, UITableVi
         outfitDetailsViewController.season = outfits[indexPath.row].season
         outfitDetailsViewController.style = outfits[indexPath.row].style
         outfitDetailsViewController.imgUrl = outfits[indexPath.row].img
+    
         
         self.navigationController?.pushViewController(outfitDetailsViewController, animated: true)
     }

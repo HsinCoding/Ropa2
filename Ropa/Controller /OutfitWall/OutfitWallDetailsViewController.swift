@@ -52,13 +52,13 @@ class OutfitWallDetailsViewController: UIViewController {
     }
     
     
-    
-    @IBAction func likeButton(_ sender: UIButton) {
-        Database.database().reference().child("outfit").child("outfitId")
-        
-        
-    }
-    
+// 按讚功能
+//    @IBAction func likeButton(_ sender: UIButton) {
+//        Database.database().reference().child("outfit").child("outfitId")
+//
+//
+//    }
+//
     
     
     
