@@ -69,7 +69,7 @@ class ClothesDetailsViewController: UIViewController {
     @IBAction func updateButton(_ sender: UIButton) {
         print(clothesId)
         let ref = Database.database().reference().child("outfit").child(clothesId)
-        ref.updateChildValues(<#T##values: [AnyHashable : Any]##[AnyHashable : Any]#>)
+//        ref.updateChildValues(<#T##values: [AnyHashable : Any]##[AnyHashable : Any]#>)
         
         
         

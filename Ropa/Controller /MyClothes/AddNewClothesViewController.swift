@@ -215,6 +215,9 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         dateLabel.text = dateCreat()
+        
+        
+        
     }
     
 }
