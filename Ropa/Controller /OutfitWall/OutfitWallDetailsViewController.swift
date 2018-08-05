@@ -53,6 +53,14 @@ class OutfitWallDetailsViewController: UIViewController {
     
     
     
+    @IBAction func likeButton(_ sender: UIButton) {
+        Database.database().reference().child("outfit").child("outfitId")
+        
+        
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
