@@ -31,11 +31,24 @@ class UserInfoViewController: UIViewController {
                 
         }
     }
-        
     
-
     
-   
+    @IBAction func logOutButton(_ sender: UIBarButtonItem) {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)
+                let firstScreenViewController = mainStoryboard.instantiateViewController(withIdentifier: "FirstScreenViewController") as! FirstScreenViewController
+                self.present(firstScreenViewController, animated: true, completion: nil)
+                
+            } catch let error as NSError {
+                print("錯誤於此：",error.localizedDescription)
+            }
+        }
+    
+    
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,15 +61,7 @@ class UserInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

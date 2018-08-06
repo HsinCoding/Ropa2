@@ -801,7 +801,7 @@
         <!--First Screen View Controller-->
         <scene sceneID="tux-xP-egg">
             <objects>
-                <viewController id="7zS-k9-gsp" customClass="FirstScreenViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7zS-k9-gsp" customClass="FirstScreenViewController" customModule="Ropa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NzK-4n-wF2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -862,63 +862,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@gmail.com" borderStyle="roundedRect" placeholder="請輸入電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH7-Ff-d74">
-                                <rect key="frame" x="125" y="133" width="125" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@gmail.com" borderStyle="roundedRect" placeholder="請輸入電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH7-Ff-d74">
+                                <rect key="frame" x="67.5" y="133" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="N5Z-ch-U9H"/>
+                                    <constraint firstAttribute="height" constant="30" id="coz-Ex-tY6"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkQ-pf-v8O">
-                                <rect key="frame" x="97" y="594" width="200" height="30"/>
+                                <rect key="frame" x="20" y="560" width="335" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="取消"/>
                                 <connections>
                                     <action selector="cancelButton:" destination="DaG-ah-iSG" eventType="touchUpInside" id="qHb-az-fGg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入欲使用之暱稱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oip-ci-2Gd">
-                                <rect key="frame" x="77" y="325" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入欲使用之暱稱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oip-ci-2Gd">
+                                <rect key="frame" x="67" y="343" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="U0z-6J-tAj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="U3v-lE-eSs"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aaaaaa" borderStyle="roundedRect" placeholder="請輸入六位數密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yy0-cL-hx0">
-                                <rect key="frame" x="77" y="207" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="D4A-xj-SMk">
-                                <rect key="frame" x="37" y="379" width="301" height="101"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="554783739.07493806">
-                                    <!--2018-08-01 02:35:39 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="userDatePickerAction:" destination="DaG-ah-iSG" eventType="valueChanged" id="uHd-hA-fv7"/>
-                                </connections>
-                            </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密碼再次確認" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gvj-9K-sR0">
-                                <rect key="frame" x="77" y="266" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aaaaaa" borderStyle="roundedRect" placeholder="請輸入六位數密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yy0-cL-hx0">
+                                <rect key="frame" x="68" y="203" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="fmf-d6-Nwa"/>
+                                    <constraint firstAttribute="height" constant="30" id="he9-WM-qCO"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ee-lZ-0Mb">
-                                <rect key="frame" x="97" y="543" width="200" height="30"/>
+                                <rect key="frame" x="20" y="481" width="335" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="註冊"/>
                                 <connections>
                                     <action selector="signInButton:" destination="DaG-ah-iSG" eventType="touchUpInside" id="gRg-Du-6M5"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密碼再次確認" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gvj-9K-sR0">
+                                <rect key="frame" x="67" y="273" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="v4C-5M-lK6"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Oip-ci-2Gd" firstAttribute="centerX" secondItem="doP-Qv-rd1" secondAttribute="centerX" id="Apy-aP-ETn"/>
+                            <constraint firstItem="yy0-cL-hx0" firstAttribute="top" secondItem="JH7-Ff-d74" secondAttribute="bottom" constant="40" id="Bx4-ez-BUh"/>
+                            <constraint firstItem="gvj-9K-sR0" firstAttribute="centerX" secondItem="doP-Qv-rd1" secondAttribute="centerX" id="GeS-Mh-zzB"/>
+                            <constraint firstItem="JH7-Ff-d74" firstAttribute="top" secondItem="c8h-J6-pwR" secondAttribute="top" constant="113" id="XMJ-Ha-wKR"/>
                             <constraint firstItem="JH7-Ff-d74" firstAttribute="centerX" secondItem="doP-Qv-rd1" secondAttribute="centerX" id="c4d-8X-mwR"/>
+                            <constraint firstItem="yy0-cL-hx0" firstAttribute="centerX" secondItem="doP-Qv-rd1" secondAttribute="centerX" id="fcU-fH-LgM"/>
+                            <constraint firstItem="gvj-9K-sR0" firstAttribute="top" secondItem="yy0-cL-hx0" secondAttribute="bottom" constant="40" id="qqe-Z4-RVR"/>
+                            <constraint firstItem="Oip-ci-2Gd" firstAttribute="top" secondItem="gvj-9K-sR0" secondAttribute="bottom" constant="40" id="yMV-Md-7nL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c8h-J6-pwR"/>
                     </view>
@@ -926,7 +935,6 @@
                         <outlet property="emailTextField" destination="JH7-Ff-d74" id="Bub-2X-GOz"/>
                         <outlet property="passwordCheckTextField" destination="gvj-9K-sR0" id="L6z-2q-Qz5"/>
                         <outlet property="passwordTextField" destination="yy0-cL-hx0" id="Bpg-XO-2S8"/>
-                        <outlet property="userDatePicker" destination="D4A-xj-SMk" id="jkZ-5w-ODv"/>
                         <outlet property="userNameTextField" destination="Oip-ci-2Gd" id="Ecc-Jc-MmA"/>
                         <segue destination="7zS-k9-gsp" kind="presentation" identifier="backToFirstView" id="0As-jc-RTj"/>
                         <segue destination="wAq-nV-QOa" kind="show" identifier="goToLogin" id="8bb-N0-Uhh"/>
@@ -934,7 +942,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caz-m6-3Gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1988" y="956"/>
+            <point key="canvasLocation" x="-1988" y="955.77211394302856"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="T7V-Uf-wJr">
@@ -954,7 +962,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ik8-WK-8II">
                                 <rect key="frame" x="20" y="428" width="335" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="註冊"/>
+                                <state key="normal" title="登入"/>
                                 <connections>
                                     <action selector="loginButton:" destination="wAq-nV-QOa" eventType="touchUpInside" id="jeL-ZO-ie3"/>
                                 </connections>
@@ -1238,7 +1246,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="54x-eu-jBm">
                         <rightBarButtonItems>
-                            <barButtonItem title="登出" id="pnG-o4-GpF"/>
+                            <barButtonItem title="登出" id="pnG-o4-GpF">
+                                <connections>
+                                    <action selector="logOutButton:" destination="okg-n7-MZE" id="68N-A2-yld"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="修改" id="cWR-y2-zUJ"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -1370,7 +1382,7 @@
         <image name="clothing" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8bb-N0-Uhh"/>
+        <segue reference="nlW-Yu-rrn"/>
         <segue reference="0As-jc-RTj"/>
     </inferredMetricsTieBreakers>
 </document>
