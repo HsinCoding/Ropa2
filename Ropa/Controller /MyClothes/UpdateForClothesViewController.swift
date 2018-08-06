@@ -156,6 +156,7 @@ class UpdateForClothesViewController: UIViewController,UIImagePickerControllerDe
                         print("Successfully to the clothes value ")
                         
                         
+                        
                         //轉換頁面
                         let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)
                         let clothesListViewController = mainStoryboard.instantiateViewController(withIdentifier: "ClothesListViewController")
