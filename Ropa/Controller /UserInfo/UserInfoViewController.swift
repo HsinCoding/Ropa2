@@ -10,7 +10,9 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class UserInfoViewController: UIViewController {
+class UserInfoViewController: UIViewController, UserInfoManagerDelegate {
+    
+    
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -18,21 +20,49 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var clothesAmountLabel: UILabel!
     @IBOutlet weak var outfitAmountLabel: UILabel!
     var ref: DatabaseReference?
+    var userInfo:[UserInfo] = []
+    let userInfoManager = UserInfoManager()
     
-    func getUserInfo() {
-       
-        guard let user = Auth.auth().currentUser else { return }
-        let uid = user.uid
-        Database.database().reference().child("userInfo").child(uid).observeSingleEvent(of: .value) { (snapshot) in
-            guard let dictionay = snapshot.value as? [String:Any] else { return }
-            for key in dictionay.values {
-                
-            }
-                
-        }
+    
+    func manager(_ manager: UserInfoManager, didfetch UserInfo: [UserInfo]) {
+        userInfo = UserInfo
+    }
+    
+    func manager(_ manager: UserInfoManager, didFaithWith error: Error) {
+        //skip
     }
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       print("這邊",userInfo)
+        
+        userInfoManager.delegate = self
+        userInfoManager.getUserInfo()
+        
+        
+    }
+    
+    
+    
+//    func getUserInfo() {
+//
+//        guard let user = Auth.auth().currentUser else { return }
+//        let uid = user.uid
+//        Database.database().reference().child("userInfo").child(uid).observeSingleEvent(of: .value) { (snapshot) in
+//            guard let dictionay = snapshot.value as? [String:Any] else { return }
+//            for key in dictionay.values {
+//
+//
+//            }
+//
+//        }
+//    }
+    
+    
+    
+    
+    //登出
     @IBAction func logOutButton(_ sender: UIBarButtonItem) {
         if Auth.auth().currentUser != nil {
             do {
@@ -45,16 +75,10 @@ class UserInfoViewController: UIViewController {
                 print("錯誤於此：",error.localizedDescription)
             }
         }
-    
-    
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-       
-    }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
