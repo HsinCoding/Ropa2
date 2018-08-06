@@ -12,16 +12,6 @@ class FirstScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        let mstring = "abc,eeee,fff"
-
-        let a = ClothesManager.share
-        
-        let array = mstring.components(separatedBy: ",")
-        
-        print(array)
         
     }
 

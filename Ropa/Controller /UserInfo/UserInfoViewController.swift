@@ -25,7 +25,9 @@ class UserInfoViewController: UIViewController {
         let uid = user.uid
         Database.database().reference().child("userInfo").child(uid).observeSingleEvent(of: .value) { (snapshot) in
             guard let dictionay = snapshot.value as? [String:Any] else { return }
-    
+            for key in dictionay.values {
+                
+            }
                 
         }
     }

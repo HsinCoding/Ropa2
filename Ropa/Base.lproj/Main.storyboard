@@ -806,29 +806,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jz-Ah-GfO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jz-Ah-GfO">
                                 <rect key="frame" x="20" y="454" width="335" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="335" id="Iaq-DU-Ew3"/>
+                                    <constraint firstAttribute="height" constant="50" id="qgC-SR-P0n"/>
                                 </constraints>
                                 <state key="normal" title="電子郵件登入"/>
                                 <connections>
                                     <segue destination="wAq-nV-QOa" kind="show" id="nlW-Yu-rrn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bZ-RJ-SMm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bZ-RJ-SMm">
                                 <rect key="frame" x="20" y="544" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4el-HM-iMc"/>
+                                </constraints>
                                 <state key="normal" title="會員註冊"/>
                                 <connections>
                                     <segue destination="DaG-ah-iSG" kind="show" id="exA-fo-01A"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothing" translatesAutoresizingMaskIntoConstraints="NO" id="EZC-4A-fdX">
+                                <rect key="frame" x="20" y="59" width="335" height="335"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="335" id="MRS-I1-o0T"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4bZ-RJ-SMm" firstAttribute="width" secondItem="8jz-Ah-GfO" secondAttribute="width" id="5s4-uf-cbQ"/>
+                            <constraint firstItem="EZC-4A-fdX" firstAttribute="top" secondItem="rL4-1e-AFr" secondAttribute="top" constant="39" id="8mJ-oJ-KaW"/>
+                            <constraint firstItem="8jz-Ah-GfO" firstAttribute="top" secondItem="EZC-4A-fdX" secondAttribute="bottom" constant="60" id="AL6-xI-dKU"/>
+                            <constraint firstItem="EZC-4A-fdX" firstAttribute="leading" secondItem="rL4-1e-AFr" secondAttribute="leading" constant="20" id="Ens-QJ-g2s"/>
+                            <constraint firstItem="rL4-1e-AFr" firstAttribute="trailing" secondItem="4bZ-RJ-SMm" secondAttribute="trailing" constant="20" id="FmY-bo-8zM"/>
+                            <constraint firstItem="4bZ-RJ-SMm" firstAttribute="leading" secondItem="rL4-1e-AFr" secondAttribute="leading" constant="20" id="ihc-h7-W9X"/>
+                            <constraint firstItem="rL4-1e-AFr" firstAttribute="trailing" secondItem="EZC-4A-fdX" secondAttribute="trailing" constant="20" id="p6Z-sQ-s01"/>
+                            <constraint firstItem="4bZ-RJ-SMm" firstAttribute="top" secondItem="8jz-Ah-GfO" secondAttribute="bottom" constant="40" id="uF0-eP-gR2"/>
                             <constraint firstItem="rL4-1e-AFr" firstAttribute="trailing" secondItem="8jz-Ah-GfO" secondAttribute="trailing" constant="20" id="xUM-jq-eHC"/>
                             <constraint firstItem="8jz-Ah-GfO" firstAttribute="leading" secondItem="rL4-1e-AFr" secondAttribute="leading" constant="20" id="xbp-g9-y9Z"/>
+                            <constraint firstItem="rL4-1e-AFr" firstAttribute="bottom" secondItem="4bZ-RJ-SMm" secondAttribute="bottom" constant="73" id="z1h-T7-q04"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rL4-1e-AFr"/>
                     </view>
@@ -845,9 +862,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@gmail.com" borderStyle="roundedRect" placeholder="請輸入電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH7-Ff-d74">
-                                <rect key="frame" x="77" y="151" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@gmail.com" borderStyle="roundedRect" placeholder="請輸入電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH7-Ff-d74">
+                                <rect key="frame" x="125" y="133" width="125" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -901,6 +917,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JH7-Ff-d74" firstAttribute="centerX" secondItem="doP-Qv-rd1" secondAttribute="centerX" id="c4d-8X-mwR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="c8h-J6-pwR"/>
                     </view>
                     <connections>
@@ -926,14 +945,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aaaaaa" borderStyle="roundedRect" placeholder="請輸入您的密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edP-pZ-hX6">
-                                <rect key="frame" x="74" y="211" width="240" height="30"/>
+                                <rect key="frame" x="20" y="260" width="335" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ik8-WK-8II">
-                                <rect key="frame" x="95" y="413" width="200" height="30"/>
+                                <rect key="frame" x="20" y="428" width="335" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="註冊"/>
                                 <connections>
@@ -941,7 +960,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MA-nq-57s">
-                                <rect key="frame" x="95" y="505" width="200" height="30"/>
+                                <rect key="frame" x="20" y="547" width="335" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="取消"/>
                                 <connections>
@@ -949,12 +968,26 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@gmail.com" borderStyle="roundedRect" placeholder="請輸入您的電子郵件" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-Kw-NFH">
-                                <rect key="frame" x="74" y="121" width="240" height="30"/>
+                                <rect key="frame" x="20" y="127" width="335" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="電子郵件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpt-cP-8BS">
+                                <rect key="frame" x="153" y="85" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密碼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lz-qy-n9L">
+                                <rect key="frame" x="153" y="209" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Taj-67-rc0"/>
@@ -1203,7 +1236,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Y9m-F0-cvH"/>
                     </view>
-                    <navigationItem key="navigationItem" id="54x-eu-jBm"/>
+                    <navigationItem key="navigationItem" id="54x-eu-jBm">
+                        <rightBarButtonItems>
+                            <barButtonItem title="登出" id="pnG-o4-GpF"/>
+                            <barButtonItem title="修改" id="cWR-y2-zUJ"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="clothesAmountLabel" destination="bdI-8Q-wB9" id="zAZ-Ya-2QN"/>
                         <outlet property="outfitAmountLabel" destination="4eh-gp-Qpw" id="CTH-1e-mAN"/>
@@ -1328,8 +1366,11 @@
             <point key="canvasLocation" x="-151.19999999999999" y="3080.5097451274364"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="clothing" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nlW-Yu-rrn"/>
+        <segue reference="8bb-N0-Uhh"/>
         <segue reference="0As-jc-RTj"/>
     </inferredMetricsTieBreakers>
 </document>
