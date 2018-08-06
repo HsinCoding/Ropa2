@@ -103,7 +103,7 @@ class AddNewClothesViewController: UIViewController, UIImagePickerControllerDele
             guard let uid = Auth.auth().currentUser?.uid else { return }
             var colorStringItems = ""
             let clothesId = NSUUID().uuidString
-            print(clothesId)
+            
             
             
             //傳clothesId資訊到下個畫面

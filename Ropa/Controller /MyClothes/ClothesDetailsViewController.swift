@@ -17,7 +17,7 @@ class ClothesDetailsViewController: UIViewController {
     @IBOutlet weak var prieceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    
+    @IBOutlet weak var shopLocateLabel: UILabel!
     
     var brand = ""
     var price = ""
@@ -26,7 +26,7 @@ class ClothesDetailsViewController: UIViewController {
     var color = ""
     var imgUrl = ""
     var clothesId = ""
-    
+    var shopLocate = ""
     
     func showColor() {
         var colorArray = [Array<String>]()
@@ -66,10 +66,7 @@ class ClothesDetailsViewController: UIViewController {
     }
     
     
-    
-    @IBAction func toUpdateButton(_ sender: UIButton) {
-        
-        
+    @IBAction func updateButton(_ sender: UIBarButtonItem) {
         //轉換頁面
         let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)
         let updateForClothesViewController = mainStoryboard.instantiateViewController(withIdentifier: "UpdateForClothesViewController") as! UpdateForClothesViewController
@@ -79,10 +76,12 @@ class ClothesDetailsViewController: UIViewController {
         updateForClothesViewController.price = self.price
         updateForClothesViewController.type = self.type
         updateForClothesViewController.date = self.date
-        
+        updateForClothesViewController.shopLocate =  self.shopLocate
+        updateForClothesViewController.clothesId = self.clothesId
         self.navigationController?.pushViewController(updateForClothesViewController, animated: true)
-        
     }
+    
+    
     
     
     
@@ -94,6 +93,7 @@ class ClothesDetailsViewController: UIViewController {
         prieceLabel.text = price
         dateLabel.text = date
         typeLabel.text = type
+        shopLocateLabel.text = shopLocate
         showColor()
         uploadImage()
     
