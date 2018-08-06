@@ -78,6 +78,7 @@ class ClothesDetailsViewController: UIViewController {
         updateForClothesViewController.date = self.date
         updateForClothesViewController.shopLocate =  self.shopLocate
         updateForClothesViewController.clothesId = self.clothesId
+        
         self.navigationController?.pushViewController(updateForClothesViewController, animated: true)
     }
     

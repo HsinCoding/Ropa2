@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
+import TDImageColors_betzerra
 
 class UpdateForClothesViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
    
@@ -115,7 +117,6 @@ class UpdateForClothesViewController: UIViewController,UIImagePickerControllerDe
                 
                 var colorArray = [Array<String>]()
                 
-                
                 for i in colors {
                     var colorStringItem = ""
                     let rgba = i.rgba
@@ -138,7 +139,7 @@ class UpdateForClothesViewController: UIViewController,UIImagePickerControllerDe
                     return
                 }
                 
-                storageRef.child(uid).child(clothesId).downloadURL(completion: { (url, error) in
+                storageRef.child(uid).child(self.clothesId).downloadURL(completion: { (url, error) in
                     guard let imageUrl = url else { return }
                     print("imguel",imageUrl)
                     
@@ -147,7 +148,7 @@ class UpdateForClothesViewController: UIViewController,UIImagePickerControllerDe
                     let dic = ["imgUrl":"\(imageUrl)","price": "\(self.priceTextField.text!)","brand":"\(self.brandTextField.text!)","type": "\(self.type)","color":"\(colorStringItems)","owner":"\(uid)","date":"\(dateString)","shopLocate":"\(self.shopLocateTextField.text!)"] as [String:Any]
                     
                     //存入服飾資料於Firebase
-                    Database.database().reference().child("clothes").child("\(clothesId)").setValue(dic, withCompletionBlock: { (error, ref) in
+                    Database.database().reference().child("clothes").child("\(self.clothesId)").setValue(dic, withCompletionBlock: { (error, ref) in
                         if let error = error {
                             print("Failed to set the clothes value", error)
                             return
@@ -161,16 +162,9 @@ class UpdateForClothesViewController: UIViewController,UIImagePickerControllerDe
                         self.navigationController?.pushViewController(clothesListViewController, animated: true)
                         
                     })
-                    
                 })
             }
-            
-            
         }
-        
-        
-        
-        
     }
     
     
@@ -179,13 +173,15 @@ class UpdateForClothesViewController: UIViewController,UIImagePickerControllerDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       print("這邊喔",shopLocate)
+        let date = dateCreat()
         dateLabel.text = date
         brandTextField.text = brand
         priceTextField.text = price
         shopLocateTextField.text = shopLocate
         uploadImage()
         
+        //設定picker default 
         for (index,value) in typeArray.enumerated() {
             if type == value {
               typeIndex = index
@@ -217,4 +213,29 @@ class UpdateForClothesViewController: UIViewController,UIImagePickerControllerDe
         }
     }
     
+    //自動生成時間
+    func dateCreat() -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        return dateString
+    }
+    
+    func dateCreatDetail() -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd/HH/mm"
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        return dateString
+    }
 }
+
+
+

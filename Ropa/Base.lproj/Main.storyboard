@@ -791,7 +791,7 @@
                         <outlet property="dateLabel" destination="ilK-L3-0D6" id="Z7Z-mk-0HJ"/>
                         <outlet property="itemPickerView" destination="xIU-ZV-lYL" id="JvD-9a-Q6s"/>
                         <outlet property="priceTextField" destination="ysu-mb-Zwf" id="e5o-bH-BQI"/>
-                        <outlet property="shopLocateTextField" destination="FGr-pe-eX6" id="63n-rK-3Qr"/>
+                        <outlet property="shopLocateTextField" destination="FGr-pe-eX6" id="eww-NN-A6b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfO-yW-D8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
