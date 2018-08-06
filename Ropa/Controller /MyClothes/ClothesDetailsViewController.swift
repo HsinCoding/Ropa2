@@ -78,6 +78,7 @@ class ClothesDetailsViewController: UIViewController {
         updateForClothesViewController.imgUrl = self.imgUrl
         updateForClothesViewController.price = self.price
         updateForClothesViewController.type = self.type
+        updateForClothesViewController.date = self.date
         
         self.navigationController?.pushViewController(updateForClothesViewController, animated: true)
         
@@ -95,11 +96,7 @@ class ClothesDetailsViewController: UIViewController {
         typeLabel.text = type
         showColor()
         uploadImage()
-        
-        
-        
-        
-        
+    
         
         
     }

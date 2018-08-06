@@ -23,6 +23,7 @@ class UpdateForClothesViewController: UIViewController,UIPickerViewDataSource, U
     
     
     var imgUrl = ""
+    var date = ""
     var brand = ""
     var price = ""
     var type = ""
@@ -47,6 +48,7 @@ class UpdateForClothesViewController: UIViewController,UIPickerViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        dateLabel.text = date
         brandTextField.text = brand
         priceTextField.text = price
         uploadImage()
