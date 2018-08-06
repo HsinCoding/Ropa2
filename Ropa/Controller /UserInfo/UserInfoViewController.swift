@@ -10,9 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class UserInfoViewController: UIViewController, UserInfoManagerDelegate {
-    
-    
+class UserInfoViewController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -20,27 +18,46 @@ class UserInfoViewController: UIViewController, UserInfoManagerDelegate {
     @IBOutlet weak var clothesAmountLabel: UILabel!
     @IBOutlet weak var outfitAmountLabel: UILabel!
     var ref: DatabaseReference?
-    var userInfo:[UserInfo] = []
+    
     let userInfoManager = UserInfoManager()
+    var userNameString = ""
     
     
-    func manager(_ manager: UserInfoManager, didfetch UserInfo: [UserInfo]) {
-        userInfo = UserInfo
+    
+    func getUserInfo() {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
+        print("第A個")
+        ref = Database.database().reference().child("userInfo").child(uid)
+        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let dictionary = snapshot.value as? [String:Any] else { return }
+            print("第零個")
+            
+            guard let email = dictionary["email"] as? String else { return }
+            print("第二個")
+            guard let myFavorite = dictionary["myFavorite"] as? String else { return }
+            print("第三個")
+            guard let userName = dictionary["userName"] as? String else { return }
+            print("第四個")
+           
+            self.userNameLabel.text = userName
+            
+            self.userEmailLabel.text = email
+        
+        })
     }
     
-    func manager(_ manager: UserInfoManager, didFaithWith error: Error) {
-        //skip
-    }
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       print("這邊",userInfo)
         
-        userInfoManager.delegate = self
-        userInfoManager.getUserInfo()
+        getUserInfo()
         
-        
+      
+       
     }
     
     

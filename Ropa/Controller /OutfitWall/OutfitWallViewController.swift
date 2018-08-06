@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 
-class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,OutfitWallManagerDelegate,UserInfoManagerDelegate {
+class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,OutfitWallManagerDelegate {
     
     
     var outfitWall: [Outfit] = []
@@ -20,15 +20,15 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBOutlet weak var outfitWallTableView: UITableView!
     
-    
-    func manager(_ manager: UserInfoManager, didfetch UserInfo: [UserInfo]) {
-        userInfo = UserInfo
-        self.outfitWallTableView.reloadData()
-    }
-    
-    func manager(_ manager: UserInfoManager, didFaithWith error: Error) {
-        //skip
-    }
+//
+//    func manager(_ manager: UserInfoManager, didfetch UserInfo: [UserInfo]) {
+//        userInfo = UserInfo
+//        self.outfitWallTableView.reloadData()
+//    }
+//
+//    func manager(_ manager: UserInfoManager, didFaithWith error: Error) {
+//        //skip
+//    }
 
    
     func manager(_ manager: OutfitWallManager, didfetch OutfitWall: [Outfit]) {
