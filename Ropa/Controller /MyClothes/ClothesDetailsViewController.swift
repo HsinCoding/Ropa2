@@ -66,13 +66,20 @@ class ClothesDetailsViewController: UIViewController {
     }
     
     
-    @IBAction func updateButton(_ sender: UIButton) {
-        print(clothesId)
-        let ref = Database.database().reference().child("outfit").child(clothesId)
-//        ref.updateChildValues(<#T##values: [AnyHashable : Any]##[AnyHashable : Any]#>)
+    
+    @IBAction func toUpdateButton(_ sender: UIButton) {
         
         
+        //轉換頁面
+        let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)
+        let updateForClothesViewController = mainStoryboard.instantiateViewController(withIdentifier: "UpdateForClothesViewController") as! UpdateForClothesViewController
         
+        updateForClothesViewController.brand = self.brand
+        updateForClothesViewController.imgUrl = self.imgUrl
+        updateForClothesViewController.price = self.price
+        updateForClothesViewController.type = self.type
+        
+        self.navigationController?.pushViewController(updateForClothesViewController, animated: true)
         
     }
     

@@ -133,6 +133,9 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         detailsViewController.clothesId = clothing[indexPath.row].id
         
         
+       
+        
+        
         // 補上圖片
         
         print("kk",clothing[indexPath.row].price)
