@@ -68,6 +68,7 @@ class UpdateUserInfoViewController: UIViewController {
     }
     
     
+    
     @IBAction func deleteButton(_ sender: UIBarButtonItem) {
         let ref = Database.database().reference()
         guard let user = Auth.auth().currentUser else { return }

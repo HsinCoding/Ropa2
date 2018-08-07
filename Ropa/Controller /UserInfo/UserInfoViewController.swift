@@ -34,7 +34,7 @@ class UserInfoViewController: UIViewController {
         let query = ref?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
         
         query?.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let dictionary = snapshot.value as? [String:Any] else { return }
+         
             if snapshot.childrenCount == 0 {
                 self.clothesAmountLabel.text = "0"
             }
@@ -51,10 +51,11 @@ class UserInfoViewController: UIViewController {
         
         //找使用者搭配
         ref = Database.database().reference().child("outfit")
+        
         let query = ref?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
         
         query?.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let dictionary = snapshot.value as? [String:Any] else { return }
+            
             if snapshot.childrenCount == 0 {
                 self.outfitAmountLabel.text = "0"
             }
@@ -95,7 +96,6 @@ class UserInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         getUserInfo()
         getClothesAmount()
         getOutfitAmount()

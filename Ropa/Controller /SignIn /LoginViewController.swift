@@ -26,15 +26,16 @@ class LoginViewController: UIViewController {
                 
                 print("恭喜登入")
             } else {
-                let error = error?.localizedDescription
-                    print(error)
-                
-                //設定警告控制器
-                let failAlert = UIAlertController(title: "登入失敗", message: "請確認輸入資料是否正確", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "重新確認", style: .cancel, handler: nil)
-                failAlert.addAction(okAction)
-                
-                self.present(failAlert, animated: true, completion: nil)
+                guard let error = error?.localizedDescription else { return }
+                if error == "There is no user record corresponding to this identifier. The user may have been deleted." {
+                    let failAlert = UIAlertController(title: "該使用者尚未註冊", message: "", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "請重新確認", style: .cancel, handler: { (Action) in
+                        self.performSegue(withIdentifier: "backToFirstView", sender: nil)
+                    })
+                    failAlert.addAction(okAction)
+                   
+                    self.present(failAlert, animated: true, completion: nil)
+                }
             }
         }
     }
