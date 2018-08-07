@@ -16,14 +16,13 @@ import FirebaseDatabase
 
 class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var publicSetting: String = "false"
-    var seasonString: String = ""
-    var style = ""
     @IBOutlet weak var outfitImageView: UIImageView!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var stylePickerView: UIPickerView!
     var ref: DatabaseReference?
-
+    var publicSetting: String = "false"
+    var seasonString: String = ""
+    var style = ""
     
     // 上傳照片按鈕設定
     @IBAction func selectImageButton(_ sender: UIButton) {
@@ -65,7 +64,6 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     
-    
     //pickerView 設定
 
     let styleArray = ["中性","街頭","甜美","浪漫","簡約","韓風","日系","歐美"]
@@ -83,7 +81,7 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     
-    //公開與否設定
+    //公開設定
     @IBAction func privacySegmentedControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             publicSetting = "true"
@@ -162,7 +160,6 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
                         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                         let OutfitListViewController = mainStoryboard.instantiateViewController(withIdentifier: "OutfitListViewController")
                         self.navigationController?.pushViewController(OutfitListViewController, animated: true)
-                        
                     })
                 })
             }
@@ -198,6 +195,5 @@ class AddNewOutfitViewController: UIViewController, UIImagePickerControllerDeleg
         
         return dateString
     }
-
 }
 
