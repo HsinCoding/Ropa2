@@ -63,9 +63,34 @@ class UpdateUserInfoViewController: UIViewController {
                 }
                 print("重新設定完成")
             })
-            
+            self.navigationController?.popViewController(animated: true)
         }
-        
+    }
+    
+    
+    @IBAction func deleteButton(_ sender: UIBarButtonItem) {
+        let ref = Database.database().reference()
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
+        user.delete { error in
+            if let error = error {
+                // An error happened.
+            } else {
+            
+                //轉換頁面
+                let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)
+                let firstScreenViewController = mainStoryboard.instantiateViewController(withIdentifier: "FirstScreenViewController") as! FirstScreenViewController
+                
+                ref.child("userInfo").child(uid).removeValue()
+                self.navigationController?.pushViewController(firstScreenViewController, animated: true)
+                let failAlert = UIAlertController(title: "已經成功刪除帳號", message: "ropa@gmail.com", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "有任何問題歡迎來信聯絡", style: .cancel, handler: nil)
+                failAlert.addAction(okAction)
+                
+                self.present(failAlert, animated: true, completion: nil)
+                
+            }
+        }
         
     }
     
