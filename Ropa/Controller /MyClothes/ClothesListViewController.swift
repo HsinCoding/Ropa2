@@ -122,7 +122,8 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         detailsViewController.brand = clothing[indexPath.row].brand
         detailsViewController.price = clothing[indexPath.row].price
 //        detailsViewController.date = clothing[indexPath.row].date
-        var dateString = clothing[indexPath.row].date
+        //時間調整
+        let dateString = clothing[indexPath.row].date
         let endIndex = dateString.index(dateString.endIndex, offsetBy: -6)
         let dateForShow = dateString.substring(to: endIndex)
         detailsViewController.date = dateForShow

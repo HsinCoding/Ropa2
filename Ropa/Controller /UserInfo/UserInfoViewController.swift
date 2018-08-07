@@ -12,6 +12,9 @@ import FirebaseAuth
 
 class UserInfoViewController: UIViewController {
     
+   
+    
+    
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
@@ -21,6 +24,43 @@ class UserInfoViewController: UIViewController {
     
     let userInfoManager = UserInfoManager()
     var userNameString = ""
+    var clothing: [Clothes] = []
+    
+   
+    func getClothesAmount() {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
+       
+        // 找使用者單品
+        ref = Database.database().reference().child("clothes")
+        let query = ref?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
+        
+        query?.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let dictionary = snapshot.value as? [String:Any] else { return }
+          
+           
+            self.clothesAmountLabel.text = String(snapshot.childrenCount)
+        }
+    )}
+    
+    func getOutfitAmount() {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
+        
+        //找使用者搭配
+        ref = Database.database().reference().child("outfit")
+        let query = ref?.queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
+        
+        query?.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let dictionary = snapshot.value as? [String:Any] else { return }
+          
+           self.outfitAmountLabel.text = String(snapshot.childrenCount)
+        })
+    }
+    
+    
     
     
     
@@ -32,21 +72,17 @@ class UserInfoViewController: UIViewController {
         ref = Database.database().reference().child("userInfo").child(uid)
         ref?.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
-            print("第零個")
-            
             guard let email = dictionary["email"] as? String else { return }
-            print("第二個")
             guard let myFavorite = dictionary["myFavorite"] as? String else { return }
-            print("第三個")
             guard let userName = dictionary["userName"] as? String else { return }
-            print("第四個")
            
             self.userNameLabel.text = userName
-            
             self.userEmailLabel.text = email
-        
+            self.clothesAmountLabel.text = String(self.clothing.count)
         })
     }
+    
+    
     
     
     
@@ -55,26 +91,11 @@ class UserInfoViewController: UIViewController {
         super.viewDidLoad()
         
         getUserInfo()
-        
-      
+        getClothesAmount()
+        getOutfitAmount()
        
     }
     
-    
-    
-//    func getUserInfo() {
-//
-//        guard let user = Auth.auth().currentUser else { return }
-//        let uid = user.uid
-//        Database.database().reference().child("userInfo").child(uid).observeSingleEvent(of: .value) { (snapshot) in
-//            guard let dictionay = snapshot.value as? [String:Any] else { return }
-//            for key in dictionay.values {
-//
-//
-//            }
-//
-//        }
-//    }
     
     
     

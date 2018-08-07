@@ -10,13 +10,11 @@ import UIKit
 
 class OutfitDetailsViewController: UIViewController {
 
-    
     @IBOutlet weak var outfitImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
     @IBOutlet weak var styleLabel: UILabel!
     @IBOutlet weak var noteTextView: UITextView!
-    
     
     var date = ""
     var season = ""
@@ -24,6 +22,21 @@ class OutfitDetailsViewController: UIViewController {
     var note = ""
     var imgUrl = "" 
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        //時間調整
+        let dateString = date
+        let endIndex = dateString.index(dateString.endIndex, offsetBy: -6)
+        let dateForShow = dateString.substring(to: endIndex)
+        
+        dateLabel.text = dateForShow
+        seasonLabel.text = season
+        styleLabel.text = style
+        noteTextView.text = note
+        uploadImage()
+
+    }
     
     func uploadImage(){
         let imageUrlString = imgUrl
@@ -39,18 +52,6 @@ class OutfitDetailsViewController: UIViewController {
                 }
                 }.resume()
         }
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        dateLabel.text = date
-        seasonLabel.text = season
-        styleLabel.text = style
-        noteTextView.text = note
-        uploadImage()
-
     }
 
     override func didReceiveMemoryWarning() {

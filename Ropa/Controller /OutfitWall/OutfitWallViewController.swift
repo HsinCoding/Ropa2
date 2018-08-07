@@ -51,7 +51,17 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OutfitWallTableViewCell
         let outfitWall = self.outfitWall[indexPath.row]
         var userNameForShow = ""
-        cell.dateLabel.text = outfitWall.date
+        
+        //時間調整
+        
+        let dateString = outfitWall.date
+        let endIndex = dateString.index(dateString.endIndex, offsetBy: -6)
+        let dateForShow = dateString.substring(to: endIndex)
+       cell.dateLabel.text = dateForShow
+        
+        
+        
+//        cell.dateLabel.text = outfitWall.date
         cell.likeAmount.text = "按讚數量"
         cell.styleLabel.text = outfitWall.style
         
@@ -87,7 +97,16 @@ class OutfitWallViewController: UIViewController,UITableViewDelegate,UITableView
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let outfitWallDetailsViewController = mainStoryboard.instantiateViewController(withIdentifier: "OutfitWallDetailsViewController") as! OutfitWallDetailsViewController
         var userNameForShow = ""
-        outfitWallDetailsViewController.date = outfitWall[indexPath.row].date
+        
+        //時間調整
+        
+        let dateString = outfitWall[indexPath.row].date
+        let endIndex = dateString.index(dateString.endIndex, offsetBy: -6)
+        let dateForShow = dateString.substring(to: endIndex)
+       outfitWallDetailsViewController.date = dateForShow
+        
+        
+//        outfitWallDetailsViewController.date = outfitWall[indexPath.row].date
         outfitWallDetailsViewController.imgUrl = outfitWall[indexPath.row].img
         outfitWallDetailsViewController.style = outfitWall[indexPath.row].style
         outfitWallDetailsViewController.userId = outfitWall[indexPath.row].owner
