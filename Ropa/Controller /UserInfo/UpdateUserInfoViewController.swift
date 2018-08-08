@@ -77,21 +77,49 @@ class UpdateUserInfoViewController: UIViewController {
             if let error = error {
                 // An error happened.
             } else {
-            
-                //轉換頁面
+
                 let mainStoryboard =  UIStoryboard(name: "Main", bundle: nil)
                 let firstScreenViewController = mainStoryboard.instantiateViewController(withIdentifier: "FirstScreenViewController") as! FirstScreenViewController
-                
+                self.present(firstScreenViewController, animated: true, completion: nil)
+
+                //刪除使用者資料
                 ref.child("userInfo").child(uid).removeValue()
-                self.navigationController?.pushViewController(firstScreenViewController, animated: true)
+
+
+                //刪除使用者Clothes紀錄
+                
+                
+                
+                //刪除使用者outfit紀錄
+
+
+
                 let failAlert = UIAlertController(title: "已經成功刪除帳號", message: "ropa@gmail.com", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "有任何問題歡迎來信聯絡", style: .cancel, handler: nil)
                 failAlert.addAction(okAction)
-                
+
                 self.present(failAlert, animated: true, completion: nil)
-                
+
             }
         }
+        
+//        let query = ref.child("clothes").queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
+//        query.observe(.value) { (snapshot) in
+//           guard let dictionary = snapshot.value as? [String:Any] else { return }
+//            if snapshot != nil {
+//                for key in dictionary.keys{
+//
+//                    ref.child("clothes").child("/(dictionary.keys)").removeValue()
+//                    print("刪除成功")
+//                }
+//
+//            }
+//            else {
+//                print("沒有資料刪除")
+//            }
+//
+//
+//        }
         
     }
     
