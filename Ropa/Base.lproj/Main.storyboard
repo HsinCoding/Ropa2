@@ -1361,8 +1361,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Txm-dL-iQO">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="3XA-Uc-SZD" kind="relationship" relationship="viewControllers" id="3yD-HQ-PWl"/>
@@ -1379,8 +1379,12 @@
         <scene sceneID="wI6-xe-0wu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3XA-Uc-SZD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Clothes" id="zgB-ZM-hPO"/>
+                    <tabBarItem key="tabBarItem" title="Clothes" id="zgB-ZM-hPO">
+                        <color key="badgeColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="-5" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LRH-wd-dug">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1586,11 +1590,11 @@
             </objects>
             <point key="canvasLocation" x="2448.8000000000002" y="3080.5097451274364"/>
         </scene>
-        <!--Item-->
+        <!--Outfit-->
         <scene sceneID="rq0-L2-CUk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ttr-lQ-ORC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bcD-ly-dxS"/>
+                    <tabBarItem key="tabBarItem" title="Outfit" id="bcD-ly-dxS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zcV-Um-sdI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1623,11 +1627,11 @@
             </objects>
             <point key="canvasLocation" x="1564" y="1685"/>
         </scene>
-        <!--Item-->
+        <!--Wall-->
         <scene sceneID="33T-Vi-ZMO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KAh-kB-OUD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="K3a-cR-RfB"/>
+                    <tabBarItem key="tabBarItem" title="Wall" id="K3a-cR-RfB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SkW-nA-m4w">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1678,11 +1682,11 @@
             </objects>
             <point key="canvasLocation" x="2818" y="-1101"/>
         </scene>
-        <!--Item-->
+        <!--My Account-->
         <scene sceneID="fHj-z6-y60">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zSp-ha-kmq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="yK0-Hp-dLf"/>
+                    <tabBarItem key="tabBarItem" title="My Account" id="yK0-Hp-dLf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hmX-TU-w5m">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
