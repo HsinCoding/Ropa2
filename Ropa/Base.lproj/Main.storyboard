@@ -1362,7 +1362,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="3XA-Uc-SZD" kind="relationship" relationship="viewControllers" id="3yD-HQ-PWl"/>
@@ -1379,7 +1378,7 @@
         <scene sceneID="wI6-xe-0wu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3XA-Uc-SZD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Clothes" id="zgB-ZM-hPO">
+                    <tabBarItem key="tabBarItem" title="Clothes" selectedImage="hanger (2)" id="zgB-ZM-hPO">
                         <color key="badgeColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="-5" vertical="0.0"/>
                     </tabBarItem>
@@ -1721,6 +1720,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hanger (2)" width="32" height="32"/>
         <image name="imageView:f2j-ox-Cz2:image" width="842" height="114">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
