@@ -22,7 +22,10 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     var ref: DatabaseReference?
     let uid = Auth.auth().currentUser?.uid 
     let clothesManager = ClothesManager()
-
+    var fullScreenSize: CGSize!
+    
+    
+    
     func manager(_ manager: ClothesManager, didfetch Clothing: [Clothes]) {
         clothing = Clothing
         self.clothesCollectionView.reloadData()
@@ -147,6 +150,8 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fullScreenSize = UIScreen.main.bounds.size
+        
         //圖片呈現部分
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let databaseRef = Database.database().reference().child("clothes")
@@ -163,6 +168,13 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
             clothesManager.delegate = self
             clothesManager.getClothes()
         }
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: fullScreenSize.width / 2 - 5, height: fullScreenSize.height / 2 - 5)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        clothesCollectionView.collectionViewLayout = layout
+        
     }
 
     
@@ -180,5 +192,9 @@ class ClothesListViewController: UIViewController, UICollectionViewDelegate, UIC
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+ 
+    
+    
 
 }
