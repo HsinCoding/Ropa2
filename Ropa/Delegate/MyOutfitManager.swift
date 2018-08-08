@@ -28,6 +28,7 @@ class MyOutfitManager {
        
         query?.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String:Any] else { return }
+            
             for key in dictionary.keys {
                 guard let valueDictionary = dictionary["\(key)"] as? [String: Any] else { return }
                 guard let date = valueDictionary["date"] as? String else { return }

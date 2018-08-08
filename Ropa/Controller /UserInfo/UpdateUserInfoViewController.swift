@@ -87,12 +87,43 @@ class UpdateUserInfoViewController: UIViewController {
 
 
                 //刪除使用者Clothes紀錄
-                
-                
-                
+                let queryForClothes = ref.child("clothes").queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
+                queryForClothes.observe(.value) { (snapshot) in
+                    guard let dictionary = snapshot.value as? [String:Any] else { return }
+                    if snapshot != nil {
+                        for key in dictionary.keys{
+                            
+                            ref.child("clothes").child(key).removeValue()
+                            print("刪除Clothes成功")
+                        }
+                        
+                    }
+                    else {
+                        print("沒有資料刪除")
+                    }
+                }
+
+
                 //刪除使用者outfit紀錄
 
-
+                let queryForOutfit = ref.child("outfit").queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
+                queryForOutfit.observe(.value) { (snapshot) in
+                    guard let dictionary = snapshot.value as? [String:Any] else { return }
+                    if snapshot != nil {
+                        for key in dictionary.keys{
+                            
+                            ref.child("outfit").child(key).removeValue()
+                            print("刪除outfit成功")
+                        }
+                    }
+                    else {
+                        print("沒有outfit資料刪除")
+                    }
+                }
+                
+                
+                
+                
 
                 let failAlert = UIAlertController(title: "已經成功刪除帳號", message: "ropa@gmail.com", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "有任何問題歡迎來信聯絡", style: .cancel, handler: nil)
@@ -103,23 +134,7 @@ class UpdateUserInfoViewController: UIViewController {
             }
         }
         
-//        let query = ref.child("clothes").queryOrdered(byChild: "owner").queryEqual(toValue: "\(uid)")
-//        query.observe(.value) { (snapshot) in
-//           guard let dictionary = snapshot.value as? [String:Any] else { return }
-//            if snapshot != nil {
-//                for key in dictionary.keys{
-//
-//                    ref.child("clothes").child("/(dictionary.keys)").removeValue()
-//                    print("刪除成功")
-//                }
-//
-//            }
-//            else {
-//                print("沒有資料刪除")
-//            }
-//
-//
-//        }
+ 
         
     }
     
