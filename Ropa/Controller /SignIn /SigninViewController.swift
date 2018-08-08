@@ -16,15 +16,12 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var userDatePicker: UIDatePicker!
     @IBOutlet weak var passwordCheckTextField: UITextField!
     
+ 
     
-    @IBAction func userDatePickerAction(_ sender: UIDatePicker) {
-        
-        let dateFormatter = DateFormatter()
-        self.userDate = dateFormatter.string(from: self.userDatePicker.date)
-    }
+    
+    
     
     
     @IBAction func signInButton(_ sender: Any) {
@@ -133,6 +130,14 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = UIColor.gray.cgColor
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = UIColor.gray.cgColor
+        passwordCheckTextField.layer.borderWidth = 1
+        passwordCheckTextField.layer.borderColor = UIColor.gray.cgColor
+        userNameTextField.layer.borderWidth = 1
+        userNameTextField.layer.borderColor = UIColor.gray.cgColor
     }
 
     override func didReceiveMemoryWarning() {
